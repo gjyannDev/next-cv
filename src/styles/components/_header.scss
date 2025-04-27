@@ -1,0 +1,18 @@
+.header__container {
+  background-color: $base-black;
+  color: $text-white;
+  height: $size-72px;
+  display: flex;
+  align-items: center;
+
+  .header__contents {
+
+    h1 {
+      font-size: $size-28px;
+
+      span {
+        color: $primary-clr;
+      }
+    }
+  }
+}
