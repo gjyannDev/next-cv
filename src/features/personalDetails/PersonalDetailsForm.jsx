@@ -1,15 +1,38 @@
+import { useState } from "react";
 import InputFields from "../../components/utils/InputField";
+import { AsyncCompiler } from "sass";
 
-export default function PersonalDetailsForm({ inputDetails = [], getPersonalDetails}) {
+export default function PersonalDetailsForm({
+  inputDetails = [],
+  getPersonalDetails,
+}) {
+  const [changeFormValue, setChangeFormValue] = useState({});
+
   function handleOnSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    const form_data = new FormData(e.target)
+    const form_data = new FormData(e.target);
     const data = Object.fromEntries(form_data.entries());
 
-    getPersonalDetails(data)
+    getPersonalDetails(data);
+
+    setChangeFormValue(
+      inputDetails.reduce((acc, curr) => {
+        acc[curr.name] = "";
+
+        return acc;
+      }, {})
+    );
 
     //TODO: Save the data to the fire store database
+  }
+
+  function handleOnChange(e) {
+    const { name, value } = e.target;
+    setChangeFormValue((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
   }
 
   return (
@@ -21,6 +44,8 @@ export default function PersonalDetailsForm({ inputDetails = [], getPersonalDeta
               labelName={details.labelName}
               inputType={details.inputType}
               name={details.name}
+              value={changeFormValue[details.name]}
+              onChange={handleOnChange}
             />
           ))}
 

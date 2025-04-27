@@ -2,6 +2,8 @@ export default function InputFields({
   labelName,
   inputType,
   name,
+  value,
+  onChange,
   options = [],
   withLabel = true,
 }) {
@@ -20,7 +22,12 @@ export default function InputFields({
       ) : (
         <div className="input__container">
           {withLabel && <label htmlFor={name}>{labelName}</label>}
-          <input type={inputType} name={name}/>
+          <input
+            type={inputType}
+            name={name}
+            value={value}
+            onChange={onChange}
+          />
         </div>
       )}
     </>
