@@ -11,3 +11,9 @@
 .main__content {
   margin-top: $size-104px;
 }
+
+.btn--primary {
+  background-color: $primary-clr;
+  padding: $size-8px  $size-40px;
+  border-radius: $size-4px;
+}
