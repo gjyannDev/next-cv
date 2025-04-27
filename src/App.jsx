@@ -1,4 +1,5 @@
 import Header from "./components/layout/Header";
+import Sidebar from "./components/layout/Sidebar";
 
 export default function App() {
 
@@ -8,9 +9,9 @@ export default function App() {
         <Header />
       </header>
 
-      <div className="main__content">
-        <nav className="nav__container">
-          {/* Call the sidebar componenet here */}
+      <div className="main__content container">
+        <nav className="side__nav--container">
+          <Sidebar />
         </nav>
 
         <main className="cv__content--container">

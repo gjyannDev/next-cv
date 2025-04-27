@@ -1,0 +1,19 @@
+.side__nav--container {
+
+  .side__bar--contents {
+    background-color: $base-black;
+    width: $size-72px;
+    height: $size-280px;
+    border-radius: $size-12px;
+    display: flex;
+    flex-direction: column;
+    gap: $size-20px;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      cursor: pointer;
+      width: $size-40px;
+    }
+  }
+}
