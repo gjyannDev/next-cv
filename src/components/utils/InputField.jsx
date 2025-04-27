@@ -21,13 +21,22 @@ export default function InputFields({
         ></textarea>
       ) : (
         <div className="input__container">
-          {withLabel && <label htmlFor={name}>{labelName}</label>}
+          {withLabel && (
+            <label
+              htmlFor={name}
+              className="input__label"
+            >
+              {labelName}
+            </label>
+          )}
           <input
             type={inputType}
             name={name}
             value={value}
             onChange={onChange}
-            className={`${name.replace(/\s+/g, "__").toLowerCase()}--input`}
+            className={`${name
+              .replace(/\s+/g, "__")
+              .toLowerCase()}--input input`}
           />
         </div>
       )}
