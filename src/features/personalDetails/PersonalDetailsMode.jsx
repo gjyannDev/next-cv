@@ -26,13 +26,13 @@ export default function PersonalDetailsMode() {
       withLabel: true,
     },
     {
-      labelName: "phone",
+      labelName: "Phone Number",
       inputType: "tel",
       name: "phone",
       withLabel: true,
     },
     {
-      labelName: "address",
+      labelName: "Address",
       inputType: "text",
       name: "address",
       withLabel: true,
@@ -47,11 +47,13 @@ export default function PersonalDetailsMode() {
         <PersonalDetailsForm
           inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}
+          formType={"add details"}
         />
       ) : status === "edit personal details" ? (
         <PersonalDetailsForm
           inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}
+          formType={"edit details"}
         />
       ) : (
         <PersonalDetailsCard />
