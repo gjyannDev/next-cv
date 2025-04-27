@@ -10,7 +10,7 @@ export default function Sidebar() {
     { id: 3, name: "Education", icon: educationIcon },
     { id: 4, name: "Work Experience", icon: workIcon },
   ];
-  
+
   return (
     <div className="side__bar--contents">
       {sections.map((section) => (
@@ -21,6 +21,7 @@ export default function Sidebar() {
           />
         </div>
       ))}
+      {/*TODO: ADD NEXT AND PREV IN HERE */}
     </div>
   );
 }
