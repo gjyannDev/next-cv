@@ -1,6 +1,8 @@
 .main__content {
   display: flex;
-
+  margin-top: $size-104px;
+  margin-bottom: $size-96px;
+  
   .cv__content--container {
     margin-left: $size-104px;
   }

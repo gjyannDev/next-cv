@@ -1,10 +1,10 @@
 import { useState } from "react";
 import InputFields from "../../components/utils/InputField";
-import { AsyncCompiler } from "sass";
 
 export default function PersonalDetailsForm({
   inputDetails = [],
   getPersonalDetails,
+  formType
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
 
@@ -36,7 +36,7 @@ export default function PersonalDetailsForm({
   }
 
   return (
-    <>
+    <div className="form__container">
       {
         <form onSubmit={handleOnSubmit}>
           {inputDetails.map((details) => (
@@ -58,6 +58,6 @@ export default function PersonalDetailsForm({
           </button>
         </form>
       }
-    </>
+    </div>
   );
 }

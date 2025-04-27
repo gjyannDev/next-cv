@@ -1,0 +1,28 @@
+.personal__details--container {
+  display: flex;
+  flex-direction: column;
+  gap: $size-20px;
+
+  h1 {
+    font-size: $size-36px;
+  }
+
+  .form__container {
+    background-color: $bg-primary;
+    border-radius: $size-8px;
+    border: $form-border-1;
+    width: 424px;
+    padding: $size-40px $size-28px;
+    box-shadow: $box-shadow-1;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $size-24px;
+    }
+
+    button {
+      align-self: flex-start;
+    }
+  }
+}
