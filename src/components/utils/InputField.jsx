@@ -20,7 +20,7 @@ export default function InputFields({
       ) : (
         <div className="input__container">
           {withLabel && <label htmlFor={name}>{labelName}</label>}
-          <input type={inputType} />
+          <input type={inputType} name={name}/>
         </div>
       )}
     </>
