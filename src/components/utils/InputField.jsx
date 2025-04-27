@@ -27,6 +27,7 @@ export default function InputFields({
             name={name}
             value={value}
             onChange={onChange}
+            className={`${name.replace(/\s+/g, "__").toLowerCase()}--input`}
           />
         </div>
       )}
