@@ -3,7 +3,7 @@ import technicalIcon from "../../assets/icons/technical_details_icon.png";
 import educationIcon from "../../assets/icons/education_details_icon.png";
 import workIcon from "../../assets/icons/work_details_icon.png";
 
-export default function Sidebar() {
+export default function Sidebar({getActiveSectionId}) {
   const sections = [
     { id: 1, name: "Personal Details", icon: personalIcon },
     { id: 2, name: "Technical Skills", icon: technicalIcon },
@@ -15,10 +15,12 @@ export default function Sidebar() {
     <div className="side__bar--contents">
       {sections.map((section) => (
         <div key={section.id}>
-          <img
-            src={section.icon}
-            alt={`${section.name} icon image`}
-          />
+          <button onClick={() => getActiveSectionId(section.id)}>
+            <img
+              src={section.icon}
+              alt={`${section.name} Icon Image`}
+            />
+          </button>
         </div>
       ))}
       {/*TODO: ADD NEXT AND PREV IN HERE */}
