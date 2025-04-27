@@ -1,10 +1,10 @@
-import PersonalDetails from "../../features/PersonalDetails";
+import PersonalDetailsMode from "../../features/personalDetails/PersonalDetailsMode";
 
-export default function FormSection({sectionId}) {
+export default function FormSection({ sectionId }) {
   const renderFormContent = () => {
     switch (sectionId) {
       case 1:
-        return <PersonalDetails />
+        return <PersonalDetailsMode />;
       case 2:
         return console.log("Technical Details");
       case 3:
@@ -12,13 +12,9 @@ export default function FormSection({sectionId}) {
       case 4:
         return console.log("Work Experience Details");
       default:
-        return //Return something if the section ID is not yet passed
+        return; //Return something if the section ID is not yet passed
     }
   };
 
-  return (
-    <>
-      {renderFormContent()}
-    </>
-  )
+  return <>{renderFormContent()}</>;
 }
