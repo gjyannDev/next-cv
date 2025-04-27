@@ -1,0 +1,61 @@
+import { useState } from "react";
+import PersonalDetailsForm from "./PersonalDetailsForm";
+import PersonalDetailsCard from "./PersonalDetailsCard";
+
+export default function PersonalDetailsMode() {
+  const [status, setStatus] = useState("add personal details");
+  const [personalDetails, setPersonalDetails] = useState({});
+
+  const personal_details_inputs = [
+    {
+      labelName: "Full Name",
+      inputType: "text",
+      name: "full name",
+      withLabel: true,
+    },
+    {
+      labelName: "Job Title",
+      inputType: "text",
+      name: "job title",
+      withLabel: true,
+    },
+    {
+      labelName: "Email",
+      inputType: "email",
+      name: "email",
+      withLabel: true,
+    },
+    {
+      labelName: "phone",
+      inputType: "tel",
+      name: "phone",
+      withLabel: true,
+    },
+    {
+      labelName: "address",
+      inputType: "text",
+      name: "address",
+      withLabel: true,
+    },
+  ];
+
+  return (
+    <div className="personal__details--container">
+      <h1>Personal Details</h1>
+
+      {status === "add personal details" ? (
+        <PersonalDetailsForm
+          inputDetails={personal_details_inputs}
+          getPersonalDetails={setPersonalDetails}
+        />
+      ) : status === "edit personal details" ? (
+        <PersonalDetailsForm
+          inputDetails={personal_details_inputs}
+          getPersonalDetails={setPersonalDetails}
+        />
+      ) : (
+        <PersonalDetailsCard />
+      )}
+    </div>
+  );
+}
