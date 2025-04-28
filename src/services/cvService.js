@@ -1,5 +1,5 @@
-import { getDoc } from "firebase/firestore";
-import { col_ref, db } from "./firebaseClient";
+import { getDoc, setDoc } from "firebase/firestore";
+import { col_ref, db, user_ref } from "./firebaseClient";
 
 export async function getPersonalDetails() {
   try {
@@ -7,6 +7,20 @@ export async function getPersonalDetails() {
     const data = res.data();
 
     return data.personalDetails;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function addPersonalDetails(personalData) {
+  try {
+    const res = await setDoc(
+      user_ref,
+      { personalDetails: { ...personalData } },
+      { merge: true }
+    );
+
+    return res;
   } catch (error) {
     console.error(error);
   }
