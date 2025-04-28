@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import PersonalDetailsCard from "./PersonalDetailsCard";
+import FetchPersonalDetails from "./FetchPersonalDetails";
 
 export default function PersonalDetailsMode() {
   const [status, setStatus] = useState("add personal details");
@@ -58,7 +59,7 @@ export default function PersonalDetailsMode() {
           setStatus={setStatus}
         />
       ) : (
-        <PersonalDetailsCard />
+        <PersonalDetailsCard/>
       )}
     </div>
   );

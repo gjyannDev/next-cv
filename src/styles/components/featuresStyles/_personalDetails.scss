@@ -25,4 +25,13 @@
       align-self: flex-start;
     }
   }
+
+  .personal__details--card {
+    background-color: $bg-primary;
+    border-radius: $size-8px;
+    border: $form-border-1;
+    width: 424px;
+    padding: $size-32px $size-28px;
+    box-shadow: $box-shadow-1;
+  }
 }

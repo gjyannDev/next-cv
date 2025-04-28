@@ -7,10 +7,10 @@ export default function PersonalDetailsForm({
   inputDetails = [],
   getPersonalDetails,
   formType,
-  setStatus
+  setStatus,
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
-  const { personalDetails, setPersonalDetails } = FetchPersonalDetails();
+  const { fetchedPersonalDetails, setFetchedPersonalDetails } = FetchPersonalDetails();
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -53,7 +53,7 @@ export default function PersonalDetailsForm({
               value={
                 formType === "add details"
                   ? changeFormValue[details.name]
-                  : personalDetails[details.name]
+                  : fetchedPersonalDetails[details.name]
               }
               onChange={handleOnChange}
               formType={formType}
