@@ -3,7 +3,7 @@ import { col_ref, db, user_ref } from "./firebaseClient";
 
 export async function getPersonalDetails() {
   try {
-    const res = await getDoc(col_ref);
+    const res = await getDoc(user_ref );
     const data = res.data();
 
     return data.personalDetails;
