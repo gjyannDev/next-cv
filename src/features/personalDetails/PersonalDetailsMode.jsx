@@ -10,13 +10,13 @@ export default function PersonalDetailsMode() {
     {
       labelName: "Full Name",
       inputType: "text",
-      name: "full name",
+      name: "full_name",
       withLabel: true,
     },
     {
       labelName: "Job Title",
       inputType: "text",
-      name: "job title",
+      name: "job_title",
       withLabel: true,
     },
     {
@@ -48,12 +48,14 @@ export default function PersonalDetailsMode() {
           inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}
           formType={"add details"}
+          setStatus={setStatus}
         />
       ) : status === "edit personal details" ? (
         <PersonalDetailsForm
           inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}
           formType={"edit details"}
+          setStatus={setStatus}
         />
       ) : (
         <PersonalDetailsCard />

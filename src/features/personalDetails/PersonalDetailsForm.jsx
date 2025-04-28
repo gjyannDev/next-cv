@@ -7,6 +7,7 @@ export default function PersonalDetailsForm({
   inputDetails = [],
   getPersonalDetails,
   formType,
+  setStatus
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
   const { personalDetails, setPersonalDetails } = FetchPersonalDetails();
@@ -28,6 +29,8 @@ export default function PersonalDetailsForm({
     );
 
     addPersonalDetails(data);
+
+    setStatus("card details")
   }
 
   function handleOnChange(e) {
@@ -62,7 +65,7 @@ export default function PersonalDetailsForm({
             className="btn--primary"
           >
             {/*//TODO: Change to edit if the edit state is set to to edit if not then save*/}
-            {formType === "add details" ? "Save" : "Edit"}
+            Save
           </button>
         </form>
       }

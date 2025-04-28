@@ -17,7 +17,6 @@ export async function addPersonalDetails(personalData) {
     const res = await setDoc(
       user_ref,
       { personalDetails: { ...personalData } },
-      { merge: true }
     );
 
     return res;
