@@ -4,6 +4,7 @@ export default function InputFields({
   name,
   value,
   onChange,
+  formType,
   options = [],
   withLabel = true,
 }) {

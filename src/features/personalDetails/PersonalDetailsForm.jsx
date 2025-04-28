@@ -1,12 +1,15 @@
 import { useState } from "react";
 import InputFields from "../../components/utils/InputField";
+import { addPersonalDetails } from "../../services/cvService";
+import FetchPersonalDetails from "./FetchPersonalDetails";
 
 export default function PersonalDetailsForm({
   inputDetails = [],
   getPersonalDetails,
-  formType
+  formType,
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
+  const { personalDetails, setPersonalDetails } = FetchPersonalDetails();
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -24,7 +27,7 @@ export default function PersonalDetailsForm({
       }, {})
     );
 
-    //TODO: Save the data to the fire store database
+    addPersonalDetails(data);
   }
 
   function handleOnChange(e) {
@@ -44,8 +47,13 @@ export default function PersonalDetailsForm({
               labelName={details.labelName}
               inputType={details.inputType}
               name={details.name}
-              value={changeFormValue[details.name]}
+              value={
+                formType === "add details"
+                  ? changeFormValue[details.name]
+                  : personalDetails[details.name]
+              }
               onChange={handleOnChange}
+              formType={formType}
             />
           ))}
 
@@ -54,7 +62,7 @@ export default function PersonalDetailsForm({
             className="btn--primary"
           >
             {/*//TODO: Change to edit if the edit state is set to to edit if not then save*/}
-            Save
+            {formType === "add details" ? "Save" : "Edit"}
           </button>
         </form>
       }
