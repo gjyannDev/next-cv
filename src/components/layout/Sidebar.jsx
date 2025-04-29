@@ -1,14 +1,14 @@
-import personalIcon from "../../assets/icons/personal_details_icon.png";
-import technicalIcon from "../../assets/icons/technical_details_icon.png";
-import educationIcon from "../../assets/icons/education_details_icon.png";
-import workIcon from "../../assets/icons/work_details_icon.png";
+import PersonalIcon from "../../assets/icons/user_icon.svg";
+import TechnicalIcon from "../../assets/icons/brain_icon.svg";
+import EducationIcon from "../../assets/icons/hat_icon.svg";
+import WorkIcon from "../../assets/icons/briefcase_icon.svg";
 
-export default function Sidebar({getActiveSectionId}) {
+export default function Sidebar({getActiveSectionId, sectionId}) {
   const sections = [
-    { id: 1, name: "Personal Details", icon: personalIcon },
-    { id: 2, name: "Technical Skills", icon: technicalIcon },
-    { id: 3, name: "Education", icon: educationIcon },
-    { id: 4, name: "Work Experience", icon: workIcon },
+    { id: 1, name: "Personal Details", icon: PersonalIcon },
+    { id: 2, name: "Technical Skills", icon: TechnicalIcon },
+    { id: 3, name: "Education", icon: EducationIcon },
+    { id: 4, name: "Work Experience", icon: WorkIcon },
   ];
 
   return (
@@ -19,6 +19,7 @@ export default function Sidebar({getActiveSectionId}) {
             <img
               src={section.icon}
               alt={`${section.name} Icon Image`}
+              className={`side__bar--icon ${sectionId === section.id ? "active" : ""}`}
             />
           </button>
         </div>
