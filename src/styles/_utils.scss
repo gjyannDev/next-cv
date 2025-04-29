@@ -18,6 +18,13 @@
   @include  primary-btn-style($size-8px, $size-32px);
 }
 
+.btn__black--outline {
+  border: 2px $base-black solid;
+  padding: $size-8px  $size-32px;
+  border-radius: $size-4px;
+  color: $base-black;
+}
+
 .btn__remove {
   @include  primary-btn-style($size-8px, $size-20px)
 }
