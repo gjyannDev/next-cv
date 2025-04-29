@@ -1,3 +1,12 @@
+@mixin card-style($padding-vertical, $padding-horizontal) {
+  background-color: $bg-primary;
+  border-radius: $size-8px;
+  border: $form-border-1;
+  width: 424px;
+  padding: $padding-vertical $padding-horizontal;
+  box-shadow: $box-shadow-1;
+}
+
 .personal__details--container {
   display: flex;
   flex-direction: column;
@@ -8,12 +17,7 @@
   }
 
   .form__container {
-    background-color: $bg-primary;
-    border-radius: $size-8px;
-    border: $form-border-1;
-    width: 424px;
-    padding: $size-40px $size-28px;
-    box-shadow: $box-shadow-1;
+    @include card-style( $size-40px, $size-28px);
 
     form {
       display: flex;
@@ -27,11 +31,6 @@
   }
 
   .personal__details--card {
-    background-color: $bg-primary;
-    border-radius: $size-8px;
-    border: $form-border-1;
-    width: 424px;
-    padding: $size-32px $size-28px;
-    box-shadow: $box-shadow-1;
+    @include card-style( $size-24px, $size-28px);
   }
 }
