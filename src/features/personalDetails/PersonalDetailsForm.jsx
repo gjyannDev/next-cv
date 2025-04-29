@@ -59,7 +59,6 @@ export default function PersonalDetailsForm({
               name={details.name}
               value={changeFormValue[details.name] || ""}
               onChange={handleOnChange}
-              formType={formType}
             />
           ))}
 

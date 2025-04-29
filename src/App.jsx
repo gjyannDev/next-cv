@@ -18,7 +18,10 @@ export default function App() {
 
       <div className="main__content container">
         <nav className="side__nav--container">
-          <Sidebar getActiveSectionId={getActiveSectionId}/>
+          <Sidebar
+            getActiveSectionId={getActiveSectionId}
+            sectionId={sectionId}
+          />
         </nav>
 
         <main className="cv__content--container">

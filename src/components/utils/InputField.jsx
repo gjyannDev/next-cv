@@ -3,18 +3,37 @@ export default function InputFields({
   inputType,
   name,
   value,
-  onChange,
-  formType,
+  onChange = () => {},
   options = [],
   withLabel = true,
 }) {
   return (
     <>
       {inputType === "select" ? (
-        <select
-          name={name}
-          id=""
-        ></select>
+        <div className="input__container">
+          {withLabel && (
+            <label
+              htmlFor={name}
+              className="input__label"
+            >
+              {labelName}
+            </label>
+          )}
+          <select
+            name={name}
+            id="select"
+            className="select"
+          >
+            {options.map((option, index) => (
+              <option
+                key={index}
+                value={option.value}
+              >
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
       ) : inputType === "textarea" ? (
         <textarea
           name={name}
