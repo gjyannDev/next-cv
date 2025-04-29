@@ -47,3 +47,14 @@
   padding-bottom: 0.5rem;
   resize: vertical;
 }
+
+.active {
+  transform: scale(1.2);
+  // opacity: 1;
+  fill: $primary-clr;
+
+}
+
+.side__bar--icon {
+  filter: invert(1);
+}
