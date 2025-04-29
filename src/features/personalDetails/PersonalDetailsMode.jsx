@@ -7,39 +7,6 @@ export default function PersonalDetailsMode() {
   const [status, setStatus] = useState("add details");
   const [personalDetails, setPersonalDetails] = useState({});
 
-  const personal_details_inputs2 = [
-    {
-      labelName: "Full",
-      inputType: "text",
-      name: "full_name",
-      withLabel: true,
-    },
-    {
-      labelName: "Job Title",
-      inputType: "text",
-      name: "job_title",
-      withLabel: true,
-    },
-    {
-      labelName: "Email",
-      inputType: "email",
-      name: "email",
-      withLabel: true,
-    },
-    {
-      labelName: "Phone Number",
-      inputType: "tel",
-      name: "phone",
-      withLabel: true,
-    },
-    {
-      labelName: "Address",
-      inputType: "text",
-      name: "address",
-      withLabel: true,
-    },
-  ];
-
   const personal_details_inputs = [
     {
       labelName: "Full Name",
@@ -86,7 +53,7 @@ export default function PersonalDetailsMode() {
         />
       ) : status === "edit details" ? (
         <PersonalDetailsForm
-          inputDetails={personal_details_inputs2}
+          inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}
           formType={status}
           setStatus={setStatus}
