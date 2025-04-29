@@ -3,6 +3,7 @@ import PersonalDetailsForm from "./PersonalDetailsForm";
 import PersonalDetailsCard from "./PersonalDetailsCard";
 import FetchPersonalDetails from "./FetchPersonalDetails";
 
+//TODO: when i change sidebar i need to track the previeous status so if i go back to the personal details then it will stay that way
 export default function PersonalDetailsMode() {
   const [status, setStatus] = useState("add details");
   const [personalDetails, setPersonalDetails] = useState({});

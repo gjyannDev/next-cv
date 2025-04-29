@@ -23,6 +23,7 @@ export default function InputFields({
             name={name}
             id="select"
             className="select"
+            onChange={(e) => onChange(e.target.value)}
           >
             {options.map((option, index) => (
               <option
