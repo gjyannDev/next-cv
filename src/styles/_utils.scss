@@ -1,3 +1,9 @@
+@mixin primary-btn-style($padding-vertical, $padding-horizontal) {
+  background-color: $primary-clr;
+  padding: $padding-vertical  $padding-horizontal;
+  border-radius: $size-4px;
+}
+
 .container {
   width: 100%;
   max-width: 1200px; 
@@ -9,9 +15,11 @@
 }
 
 .btn--primary {
-  background-color: $primary-clr;
-  padding: $size-8px  $size-40px;
-  border-radius: $size-4px;
+  @include  primary-btn-style($size-8px, $size-32px);
+}
+
+.btn__remove {
+  @include  primary-btn-style($size-8px, $size-20px)
 }
 
 // inputs style declarations
@@ -31,7 +39,7 @@
 
 .input, .text__area, .select {
   max-width: inherit;
-  height: 36px;
+  height: 40px;
   background-color: $bg-primary;
   border-radius: 0.25rem;
   padding: 0 0.6rem;

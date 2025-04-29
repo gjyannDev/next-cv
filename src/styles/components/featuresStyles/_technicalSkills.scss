@@ -1,0 +1,48 @@
+.skills__details--container {
+  display: flex;
+  flex-direction: column;
+  gap: $size-20px;
+
+  .content__form--container {
+    @include card-style( $size-40px, $size-28px);
+  }
+
+  h1 {
+    font-size: $size-36px;
+  }
+
+  .form__container {
+    @include card-style( $size-40px, $size-28px);
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $size-24px;
+    }
+  }
+}
+
+.language__form--container {
+  margin-top: $size-40px;
+
+  .form__title {
+    font-size: $size-20px;
+    margin-bottom: $size-28px;
+  }
+
+  .language__form--contents {
+    display: flex;
+    flex-direction: column;
+    gap: $size-12px;
+
+    .language__input--container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: $size-20px;
+      }
+    }
+  }
+}
