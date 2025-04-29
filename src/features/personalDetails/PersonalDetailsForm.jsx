@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputFields from "../../components/utils/InputField";
 import { addPersonalDetails } from "../../services/cvService";
 import FetchPersonalDetails from "./FetchPersonalDetails";
@@ -10,7 +10,14 @@ export default function PersonalDetailsForm({
   setStatus,
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
-  const { fetchedPersonalDetails, setFetchedPersonalDetails } = FetchPersonalDetails();
+  const { fetchedPersonalDetails, setFetchedPersonalDetails } =
+    FetchPersonalDetails();
+
+  useEffect(() => {
+    if (formType === "edit details") {
+      setChangeFormValue(fetchedPersonalDetails);
+    }
+  }, [formType, fetchedPersonalDetails]);
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -30,7 +37,7 @@ export default function PersonalDetailsForm({
 
     addPersonalDetails(data);
 
-    setStatus("card details")
+    setStatus("card details");
   }
 
   function handleOnChange(e) {
@@ -50,11 +57,7 @@ export default function PersonalDetailsForm({
               labelName={details.labelName}
               inputType={details.inputType}
               name={details.name}
-              value={
-                formType === "add details"
-                  ? changeFormValue[details.name]
-                  : fetchedPersonalDetails[details.name]
-              }
+              value={changeFormValue[details.name] || ""}
               onChange={handleOnChange}
               formType={formType}
             />
@@ -64,7 +67,6 @@ export default function PersonalDetailsForm({
             type="submit"
             className="btn--primary"
           >
-            {/*//TODO: Change to edit if the edit state is set to to edit if not then save*/}
             Save
           </button>
         </form>
