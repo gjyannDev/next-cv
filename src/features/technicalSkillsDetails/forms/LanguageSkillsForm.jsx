@@ -2,10 +2,35 @@ import { useState } from "react";
 import InputFields from "../../../components/utils/InputField";
 
 export default function LanguageSkillsForm() {
-  const [languageInputs, setLanguageInputs] = useState([]);
+  const [languageInputs, setLanguageInputs] = useState(["", ""]);
 
   function handleAddMoreSkills() {
     setLanguageInputs([...languageInputs, ""]);
+  }
+
+  function handleOnChange(e) {
+    const { value } = e.target;
+    const index = parseInt(e.target.dataset.index, 10);
+
+    setLanguageInputs((preValues) => {
+      const updated_value = [...preValues];
+
+      updated_value[index] = value;
+
+      return updated_value
+    })
+  }
+
+  function handleRemoveSkills(e) {
+    const index = parseInt(e.target.dataset.index, 10);
+
+    setLanguageInputs((preValues) => {
+      const updated_value = [...preValues];
+
+      updated_value.splice(index, 1)
+
+      return updated_value
+    })
   }
 
   return (
@@ -21,12 +46,16 @@ export default function LanguageSkillsForm() {
               labelName={""}
               name={"language"}
               inputType={"input"}
-              value={""}
+              onChange={handleOnChange}
+              value={languageInputs[index]}
               withLabel={false}
+              index={index}
             />
             <button
               type="button"
               className="btn__remove btn--primary"
+              onClick={handleRemoveSkills}
+              data-index={index}
             >
               Remove
             </button>
