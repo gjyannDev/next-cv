@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { addFrameWorksSkill } from "../../../services/api/cvService";
 import TechnicalSkillsDynamicForm from "./TechnicalSkillsDynamicForm";
+import FetchData from "../../../services/cv/FetchData";
 
 export default function FrameworksSkillsForm() {
   const [frameWorks, setFrameWorks] = useState(["", ""]);
+  const { fetchedFrameWorksSkills } = FetchData();
+
+  useEffect(() => {
+    setFrameWorks([...fetchedFrameWorksSkills]);
+  }, [fetchedFrameWorksSkills]);
 
   function handleAddMoreSkills() {
     setFrameWorks([...frameWorks, ""]);

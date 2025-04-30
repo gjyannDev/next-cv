@@ -4,6 +4,7 @@ import { getPersonalDetails, getTechnicalSkills } from "../api/cvService";
 export default function FetchData() {
   const [fetchedPersonalDetails, setFetchedPersonalDetails] = useState({});
   const [fetchedLanguagesSkills, setFetchedLanguagesSkills] = useState([]);
+  const [fetchedFrameWorksSkills, setFetchedFrameWorksSkills] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -14,6 +15,9 @@ export default function FetchData() {
         const get_languages_skills = await getTechnicalSkills();
         setFetchedLanguagesSkills(get_languages_skills.languages || []);
 
+        const get_frameworks_skills = await getTechnicalSkills();
+        setFetchedFrameWorksSkills(get_frameworks_skills.frameWorks || []);
+
       } catch (err) {
         console.error("Error fetching personal details:", err);
       }
@@ -22,5 +26,5 @@ export default function FetchData() {
     fetchData();
   }, []);
 
-  return { fetchedPersonalDetails, fetchedLanguagesSkills };
+  return { fetchedPersonalDetails, fetchedLanguagesSkills, fetchedFrameWorksSkills };
 }
