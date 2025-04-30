@@ -6,6 +6,7 @@ export default function InputFields({
   onChange = () => {},
   options = [],
   withLabel = true,
+  index = null
 }) {
   return (
     <>
@@ -58,6 +59,7 @@ export default function InputFields({
             className={`${name
               .replace(/\s+/g, "__")
               .toLowerCase()}--input input`}
+            data-index={index}
           />
         </div>
       )}
