@@ -1,8 +1,15 @@
-import { useState } from "react";
-import InputFields from "../../../components/utils/InputField";
+import { useEffect, useState } from "react";
+import { addLanguageSkill } from "../../../services/api/cvService";
+import TechnicalSkillsDynamicForm from "./TechnicalSkillsDynamicForm";
+import FetchData from "../../../services/cv/FetchData";
 
 export default function LanguageSkillsForm() {
   const [languageInputs, setLanguageInputs] = useState(["", ""]);
+  const { fetchedLanguagesSkills } = FetchData();
+
+  useEffect(() => {
+    setLanguageInputs([...fetchedLanguagesSkills]);
+  }, [fetchedLanguagesSkills]);
 
   function handleAddMoreSkills() {
     setLanguageInputs([...languageInputs, ""]);
@@ -17,8 +24,8 @@ export default function LanguageSkillsForm() {
 
       updated_value[index] = value;
 
-      return updated_value
-    })
+      return updated_value;
+    });
   }
 
   function handleRemoveSkills(e) {
@@ -27,47 +34,28 @@ export default function LanguageSkillsForm() {
     setLanguageInputs((preValues) => {
       const updated_value = [...preValues];
 
-      updated_value.splice(index, 1)
+      updated_value.splice(index, 1);
 
-      return updated_value
-    })
+      addLanguageSkill(updated_value);
+
+      return updated_value;
+    });
+  }
+
+  function handleDataSave() {
+    addLanguageSkill(languageInputs);
   }
 
   return (
     <div className="language__form--container">
-      <h3 className="form__title">{"Programming Languages"}</h3>
-      <div className="language__form--contents">
-        {languageInputs.map((language, index) => (
-          <div
-            className={`language__input${index + 1} language__input--container`}
-          >
-            <h3>{index + 1}</h3>
-            <InputFields
-              labelName={""}
-              name={"language"}
-              inputType={"input"}
-              onChange={handleOnChange}
-              value={languageInputs[index]}
-              withLabel={false}
-              index={index}
-            />
-            <button
-              type="button"
-              className="btn__remove btn--primary"
-              onClick={handleRemoveSkills}
-              data-index={index}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
-        <button
-          className="btn__black--outline add__more--btn"
-          onClick={handleAddMoreSkills}
-        >
-          Add more
-        </button>
-      </div>
+      <TechnicalSkillsDynamicForm
+        formLabel={"Programming Languages"}
+        skillData={languageInputs}
+        onChange={handleOnChange}
+        onBlur={handleDataSave}
+        handleRemoveSkills={handleRemoveSkills}
+        handleAddSkills={handleAddMoreSkills}
+      />
     </div>
   );
 }

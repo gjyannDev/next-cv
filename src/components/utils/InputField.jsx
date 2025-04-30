@@ -4,6 +4,7 @@ export default function InputFields({
   name,
   value,
   onChange = () => {},
+  onBlur = () => {},
   options = [],
   withLabel = true,
   index = null
@@ -60,6 +61,7 @@ export default function InputFields({
               .replace(/\s+/g, "__")
               .toLowerCase()}--input input`}
             data-index={index}
+            onBlur={onBlur}
           />
         </div>
       )}
