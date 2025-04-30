@@ -1,4 +1,4 @@
-import { getDoc, setDoc } from "firebase/firestore";
+import { addDoc, getDoc, setDoc, arrayUnion, updateDoc } from "firebase/firestore";
 import { col_ref, db, user_ref } from "../firebaseClient";
 
 export async function getPersonalDetails() {
@@ -56,7 +56,7 @@ export async function addFrameWorksSkill(frameWorksSkills) {
 
     return res;
   } catch (error) {
-    console.error("Error adding language skills:", error);
+    console.error("Error adding frame works skills:", error);
   }
 }
 
@@ -72,7 +72,7 @@ export async function addToolsSkills(toolsSkills) {
 
     return res;
   } catch (error) {
-    console.error("Error adding language skills:", error);
+    console.error("Error adding tools skills:", error);
   }
 }
 
@@ -84,5 +84,21 @@ export async function getTechnicalSkills() {
     return data.technicalSkills;
   } catch (error) {
     console.error(error);
+  }
+}
+
+export async function addEducationDetails(educationData) {
+  try {
+    const res = await updateDoc(
+      user_ref,
+      {
+        educationDetails: arrayUnion(educationData),
+      },
+      { merge: true }
+    );
+
+    return res;
+  } catch (error) {
+    console.error("Error adding education details:", error);
   }
 }
