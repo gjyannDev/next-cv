@@ -49,7 +49,7 @@ export default function ToolsSkillsForm() {
   return (
     <div className="language__form--container">
       <TechnicalSkillsDynamicForm
-        formLabel={"Programming Languages"}
+        formLabel={"Tools & Other Technologies"}
         skillData={tools}
         onChange={handleOnChange}
         onBlur={handleDataSave}
