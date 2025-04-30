@@ -5,6 +5,7 @@ export default function FetchData() {
   const [fetchedPersonalDetails, setFetchedPersonalDetails] = useState({});
   const [fetchedLanguagesSkills, setFetchedLanguagesSkills] = useState([]);
   const [fetchedFrameWorksSkills, setFetchedFrameWorksSkills] = useState([]);
+  const [fetchedToolsSkills, setFetchedToolsSkills] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -18,6 +19,8 @@ export default function FetchData() {
         const get_frameworks_skills = await getTechnicalSkills();
         setFetchedFrameWorksSkills(get_frameworks_skills.frameWorks || []);
 
+        const get_tools_skills = await getTechnicalSkills();
+        setFetchedToolsSkills(get_tools_skills.tools || []);
       } catch (err) {
         console.error("Error fetching personal details:", err);
       }
@@ -26,5 +29,10 @@ export default function FetchData() {
     fetchData();
   }, []);
 
-  return { fetchedPersonalDetails, fetchedLanguagesSkills, fetchedFrameWorksSkills };
+  return {
+    fetchedPersonalDetails,
+    fetchedLanguagesSkills,
+    fetchedFrameWorksSkills,
+    fetchedToolsSkills
+  };
 }

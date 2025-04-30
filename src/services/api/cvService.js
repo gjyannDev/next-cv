@@ -60,6 +60,22 @@ export async function addFrameWorksSkill(frameWorksSkills) {
   }
 }
 
+export async function addToolsSkills(toolsSkills) {
+  try {
+    const res = await setDoc(
+      user_ref,
+      {
+        technicalSkills: { tools: [...toolsSkills] },
+      },
+      { merge: true }
+    );
+
+    return res;
+  } catch (error) {
+    console.error("Error adding language skills:", error);
+  }
+}
+
 export async function getTechnicalSkills() {
   try {
     const res = await getDoc(user_ref);

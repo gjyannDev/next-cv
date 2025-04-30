@@ -2,6 +2,7 @@ import { useState } from "react";
 import InputFields from "../../components/utils/InputField";
 import LanguageSkillsForm from "./forms/LanguageSkillsForm";
 import FrameworksSkillsForm from "./forms/FrameworksSkillsForm";
+import ToolsSkillsForm from "./forms/ToolsSkillsForm";
 
 export default function TechnicalSkillsMode() {
   const [selectedMode, setSelectedMode] = useState("language");
@@ -30,7 +31,9 @@ export default function TechnicalSkillsMode() {
           <LanguageSkillsForm />
         ) : selectedMode === "frameworks" ? (
           <FrameworksSkillsForm />
-        ) : null}
+        ) : (
+          <ToolsSkillsForm />
+        )}
       </div>
     </div>
   );
