@@ -1,7 +1,7 @@
-import FetchPersonalDetails from "./FetchPersonalDetails";
+import FetchData from "../../services/cv/FetchData";
 
 export default function PersonalDetailsCard({setStatus}) {
-  const { fetchedPersonalDetails, setFetchedPersonalDetails } = FetchPersonalDetails();
+  const { fetchedPersonalDetails } = FetchData();
   
   return (
     <div className="personal__details--card" onClick={() => { setStatus("edit details") }}>
