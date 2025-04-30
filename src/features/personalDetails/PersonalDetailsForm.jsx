@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import InputFields from "../../components/utils/InputField";
-import { addPersonalDetails } from "../../services/cvService";
-import FetchPersonalDetails from "./FetchPersonalDetails";
+import { addPersonalDetails } from "../../services/api/cvService";
+import FetchData from "../../services/cv/FetchData";
 
 export default function PersonalDetailsForm({
   inputDetails = [],
@@ -10,8 +10,7 @@ export default function PersonalDetailsForm({
   setStatus,
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
-  const { fetchedPersonalDetails, setFetchedPersonalDetails } =
-    FetchPersonalDetails();
+  const { fetchedPersonalDetails } = FetchData();
 
   useEffect(() => {
     if (formType === "edit details") {
