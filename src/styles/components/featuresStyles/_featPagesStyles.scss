@@ -1,4 +1,13 @@
-.skills__details--container {
+@mixin card-style($padding-vertical, $padding-horizontal) {
+  background-color: $bg-primary;
+  border-radius: $size-8px;
+  border: $form-border-1;
+  width: 424px;
+  padding: $padding-vertical $padding-horizontal;
+  box-shadow: $box-shadow-1;
+}
+
+.personal__details--container, .education__details--container, .skills__details--container{
   display: flex;
   flex-direction: column;
   gap: $size-20px;
@@ -19,6 +28,14 @@
       flex-direction: column;
       gap: $size-24px;
     }
+
+    button {
+      align-self: flex-start;
+    }
+  }
+
+  .personal__details--card {
+    @include card-style( $size-24px, $size-28px);
   }
 }
 
