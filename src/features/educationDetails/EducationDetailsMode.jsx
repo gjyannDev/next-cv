@@ -4,6 +4,8 @@ import EducationDetailsCard from "./EducationDetailsCard";
 
 export default function EducationDetailsMode() {
   const [educationStatus, setEducationStatus] = useState("add education");
+  const [editEducationData, setEditEducationData] = useState([]);
+  const [educationCardId, setEducationCardId] = useState("");
 
   const education_details_inputs = [
     {
@@ -54,9 +56,21 @@ export default function EducationDetailsMode() {
           status={educationStatus}
           setStatus={setEducationStatus}
         />
-      ) : educationStatus === "card education" ? (
-        <EducationDetailsCard />
-      ) : null}
+      ) : educationStatus === "edit education" ? (
+        <EducationDetailsForm
+          inputDetails={education_details_inputs}
+          status={educationStatus}
+          setStatus={setEducationStatus}
+          editEducationData={editEducationData}
+          educationCardId={educationCardId}
+        />
+      ) : (
+        <EducationDetailsCard
+          setStatus={setEducationStatus}
+          setEditEducationData={setEditEducationData}
+          setEducationCardId={setEducationCardId}
+        />
+      )}
     </div>
   );
 }
