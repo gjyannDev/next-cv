@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
-import { getPersonalDetails, getTechnicalSkills } from "../api/cvService";
+import {
+  getPersonalDetails,
+  getTechnicalSkills,
+  getAllEducationDetails,
+} from "../api/cvService";
 
 export default function FetchData() {
   const [fetchedPersonalDetails, setFetchedPersonalDetails] = useState({});
   const [fetchedLanguagesSkills, setFetchedLanguagesSkills] = useState([]);
   const [fetchedFrameWorksSkills, setFetchedFrameWorksSkills] = useState([]);
   const [fetchedToolsSkills, setFetchedToolsSkills] = useState([]);
+  const [fetchedAllEducationDetails, setFetchedAllEducationDetails] = useState(
+    []
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -21,6 +28,10 @@ export default function FetchData() {
 
         const get_tools_skills = await getTechnicalSkills();
         setFetchedToolsSkills(get_tools_skills.tools || []);
+
+        const get_all_education = await getAllEducationDetails();
+        setFetchedAllEducationDetails(get_all_education || []);
+
       } catch (err) {
         console.error("Error fetching personal details:", err);
       }
@@ -33,6 +44,7 @@ export default function FetchData() {
     fetchedPersonalDetails,
     fetchedLanguagesSkills,
     fetchedFrameWorksSkills,
-    fetchedToolsSkills
+    fetchedToolsSkills,
+    fetchedAllEducationDetails,
   };
 }
