@@ -1,10 +1,10 @@
-@mixin card-style($padding-vertical, $padding-horizontal) {
+@mixin card-style($padding-vertical, $padding-horizontal, $box-shadow) {
   background-color: $bg-primary;
   border-radius: $size-8px;
   border: $form-border-1;
   width: 424px;
   padding: $padding-vertical $padding-horizontal;
-  box-shadow: $box-shadow-1;
+  box-shadow: $box-shadow;
 }
 
 .personal__details--container, .education__details--container, .skills__details--container{
@@ -13,7 +13,7 @@
   gap: $size-20px;
 
   .content__form--container {
-    @include card-style( $size-40px, $size-28px);
+    @include card-style( $size-40px, $size-28px, $box-shadow-1);
   }
 
   h1 {
@@ -21,7 +21,7 @@
   }
 
   .form__container {
-    @include card-style( $size-40px, $size-28px);
+    @include card-style( $size-40px, $size-28px, $box-shadow-1);
 
     form {
       display: flex;
@@ -35,7 +35,36 @@
   }
 
   .personal__details--card {
-    @include card-style( $size-24px, $size-28px);
+    @include card-style( $size-24px, $size-28px, $box-shadow-1);
+  }
+
+  .education__details--card {
+    display: flex;
+    flex-direction: column;
+    gap: $size-12px;
+    .education__card {
+      @include card-style( $size-12px, $size-28px, none);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .education__card--left {
+        display: flex;
+        flex-direction: column;
+        gap: $size-4px;
+        
+        h1 {
+          font-size: $size-20px;
+        }
+      }
+
+      .education__card--right {
+
+        img {
+          width: $size-24px;
+        }
+      }
+    }
   }
 }
 
