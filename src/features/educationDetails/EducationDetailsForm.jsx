@@ -8,14 +8,20 @@ export default function EducationDetailsForm({
   setStatus,
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
+  const id = crypto.randomUUID();
 
   function handleOnSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const form_data = new FormData(e.target);
     const data = Object.fromEntries(form_data);
 
-    addEducationDetails(data)
+    const params = {
+      id: id,
+      ...data,
+    };
+
+    addEducationDetails(params);
 
     setChangeFormValue(
       inputDetails.reduce((acc, curr) => {
@@ -24,6 +30,8 @@ export default function EducationDetailsForm({
         return acc;
       }, {})
     );
+
+    setStatus("card education");
   }
 
   function handleOnChange(e) {
