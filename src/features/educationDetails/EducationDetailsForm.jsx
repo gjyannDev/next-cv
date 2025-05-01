@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputFields from "../../components/utils/InputField";
 import { addEducationDetails } from "../../services/api/cvService";
+import FetchData from "../../services/cv/FetchData";
 
 export default function EducationDetailsForm({
   inputDetails = [],
   status,
   setStatus,
+  editEducationData = [],
+  educationCardId = ""
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
+  const { fetchedAllEducationDetails } = FetchData();
   const id = crypto.randomUUID();
+
+  useEffect(() => {
+    if (status === "edit education") {
+      editEducationData.forEach((data) => {
+        setChangeFormValue(data);
+      });
+    }
+  }, [status, editEducationData]);
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -20,8 +32,20 @@ export default function EducationDetailsForm({
       id: id,
       ...data,
     };
+    console.log(status)
 
-    addEducationDetails(params);
+    //TODO: add condition if status is edit
+    if (status === "add education") {
+      addEducationDetails(params);
+    } else if (status === "edit education") {
+      //TODO: finish this shit later
+      console.log("sup")
+      const updated = [...editEducationData]
+
+      updated[0] = params
+
+      addEducationDetails(updated);
+    }
 
     setChangeFormValue(
       inputDetails.reduce((acc, curr) => {
