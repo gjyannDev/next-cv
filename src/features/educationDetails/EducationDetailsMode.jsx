@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EducationDetailsForm from "./EducationDetailsForm";
+import EducationDetailsCard from "./EducationDetailsCard";
 
 export default function EducationDetailsMode() {
   const [educationStatus, setEducationStatus] = useState("add education");
@@ -48,7 +49,13 @@ export default function EducationDetailsMode() {
       <h1>Education Details</h1>
 
       {educationStatus === "add education" ? (
-        <EducationDetailsForm inputDetails={education_details_inputs} />
+        <EducationDetailsForm
+          inputDetails={education_details_inputs}
+          status={educationStatus}
+          setStatus={setEducationStatus}
+        />
+      ) : educationStatus === "card education" ? (
+        <EducationDetailsCard />
       ) : null}
     </div>
   );
