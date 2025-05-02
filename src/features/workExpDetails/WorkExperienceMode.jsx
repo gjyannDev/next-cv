@@ -55,6 +55,8 @@ export default function WorkExperienceMode() {
           inputDetails={work_input_details}
           status={status}
           setStatus={setStatus}
+          editWorkData={workExperienceData}
+          workCardId={workCardId}
         />
       ) : (
         <WorkExperienceCard

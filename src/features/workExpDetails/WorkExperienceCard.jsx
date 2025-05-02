@@ -44,7 +44,7 @@ export default function WorkExperienceCard({
           onClick={() => handleCardClick(work.id)}
         >
           <div className="work__card--left">
-            <h1>{work.school}</h1>
+            <h1>{work.company_name}</h1>
             <h3>{getYearDate(work.start_date, work.end_date)}</h3>
           </div>
           <div className="work__card--right">
