@@ -7,7 +7,7 @@ export default function InputFields({
   onBlur = () => {},
   options = [],
   withLabel = true,
-  index = null
+  index = null,
 }) {
   return (
     <>
@@ -38,10 +38,20 @@ export default function InputFields({
           </select>
         </div>
       ) : inputType === "textarea" ? (
-        <textarea
-          name={name}
-          id=""
-        ></textarea>
+        <div className="input__container">
+          {withLabel && (
+            <label
+              htmlFor={name}
+              className="input__label"
+            >
+              {labelName}
+            </label>
+          )}
+          <textarea
+            name={name}
+            className="text__area"
+          ></textarea>
+        </div>
       ) : (
         <div className="input__container">
           {withLabel && (
