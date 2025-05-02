@@ -43,7 +43,7 @@ export default function EducationDetailsForm({
 
       const new_updated_arr = updated_arr.map((education) => {
         if (education.id === educationCardId) {
-          return {...params, id: educationCardId};
+          return { ...params, id: educationCardId };
         } else {
           return education;
         }
@@ -84,13 +84,24 @@ export default function EducationDetailsForm({
               onChange={handleOnChange}
             />
           ))}
+          <div className="grouped__btn--container">
+            {status === "edit education" && (
+              <button
+                type="submit"
+                className="btn--primary-2"
+                onClick={() => setStatus("card education")}
+              >
+                Cancel
+              </button>
+            )}
 
-          <button
-            type="submit"
-            className="btn--primary"
-          >
-            Save
-          </button>
+            <button
+              type="submit"
+              className="btn--primary"
+            >
+              Save
+            </button>
+          </div>
         </form>
       }
     </div>

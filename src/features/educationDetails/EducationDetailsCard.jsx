@@ -61,6 +61,7 @@ export default function EducationDetailsCard({
           </div>
         </div>
       ))}
+      {/*ADD Button to add education if you are on the education details card */}
     </div>
   );
 }
