@@ -3,6 +3,7 @@ import {
   getPersonalDetails,
   getTechnicalSkills,
   getAllEducationDetails,
+  getAllWorkDetails,
 } from "../api/cvService";
 
 export default function FetchData() {
@@ -13,6 +14,7 @@ export default function FetchData() {
   const [fetchedAllEducationDetails, setFetchedAllEducationDetails] = useState(
     []
   );
+  const [fetchedAllWorkExpDetails, setFetchedAllWorkExpDetails] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -31,6 +33,9 @@ export default function FetchData() {
 
         const get_all_education = await getAllEducationDetails();
         setFetchedAllEducationDetails(get_all_education || []);
+
+        const get_all_work = await getAllWorkDetails();
+        setFetchedAllWorkExpDetails(get_all_work || []);
       } catch (err) {
         console.error("Error fetching personal details:", err);
       }
@@ -46,5 +51,7 @@ export default function FetchData() {
     fetchedToolsSkills,
     fetchedAllEducationDetails,
     setFetchedAllEducationDetails,
+    fetchedAllWorkExpDetails,
+    setFetchedAllWorkExpDetails,
   };
 }
