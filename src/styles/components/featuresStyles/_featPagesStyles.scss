@@ -7,7 +7,7 @@
   box-shadow: $box-shadow;
 }
 
-.personal__details--container, .education__details--container, .skills__details--container{
+.personal__details--container, .education__details--container, .skills__details--container, .work__details--container{
   display: flex;
   flex-direction: column;
   gap: $size-20px;
