@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import InputFields from "../../components/utils/InputField";
-import { addEducationDetails } from "../../services/api/cvService";
+import {
+  addEducationDetails,
+  updateEducationDetails,
+} from "../../services/api/cvService";
 import FetchData from "../../services/cv/FetchData";
 
 export default function EducationDetailsForm({
@@ -8,7 +11,7 @@ export default function EducationDetailsForm({
   status,
   setStatus,
   editEducationData = [],
-  educationCardId = ""
+  educationCardId = "",
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
   const { fetchedAllEducationDetails } = FetchData();
@@ -32,19 +35,21 @@ export default function EducationDetailsForm({
       id: id,
       ...data,
     };
-    console.log(status)
 
-    //TODO: add condition if status is edit
     if (status === "add education") {
       addEducationDetails(params);
     } else if (status === "edit education") {
-      //TODO: finish this shit later
-      console.log("sup")
-      const updated = [...editEducationData]
+      const updated_arr = [...fetchedAllEducationDetails];
 
-      updated[0] = params
+      const new_updated_arr = updated_arr.map((education) => {
+        if (education.id === educationCardId) {
+          return {...params, id: educationCardId};
+        } else {
+          return education;
+        }
+      });
 
-      addEducationDetails(updated);
+      updateEducationDetails(new_updated_arr);
     }
 
     setChangeFormValue(
