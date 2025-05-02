@@ -6,17 +6,17 @@ import FetchData from "../../services/cv/FetchData";
 export default function PersonalDetailsForm({
   inputDetails = [],
   getPersonalDetails,
-  formType,
+  status,
   setStatus,
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
   const { fetchedPersonalDetails } = FetchData();
 
   useEffect(() => {
-    if (formType === "edit details") {
+    if (status === "edit details") {
       setChangeFormValue(fetchedPersonalDetails);
     }
-  }, [formType, fetchedPersonalDetails]);
+  }, [status, fetchedPersonalDetails]);
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -61,12 +61,24 @@ export default function PersonalDetailsForm({
             />
           ))}
 
-          <button
-            type="submit"
-            className="btn--primary"
-          >
-            Save
-          </button>
+          <div className="grouped__btn--container">
+            {status === "edit details" && (
+              <button
+                type="submit"
+                className="btn--primary-2"
+                onClick={() => setStatus("card details")}
+              >
+                Cancel
+              </button>
+            )}
+
+            <button
+              type="submit"
+              className="btn--primary"
+            >
+              Save
+            </button>
+          </div>
         </form>
       }
     </div>

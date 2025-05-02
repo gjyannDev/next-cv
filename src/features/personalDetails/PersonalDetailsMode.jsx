@@ -55,7 +55,7 @@ export default function PersonalDetailsMode() {
         <PersonalDetailsForm
           inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}
-          formType={status}
+          status={status}
           setStatus={setStatus}
         />
       ) : (
