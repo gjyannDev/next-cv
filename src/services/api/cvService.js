@@ -151,3 +151,30 @@ export async function addWorkExperienceDetails(workExperienceData) {
     console.error("Error adding work experience details:", error);
   }
 }
+
+export async function getAllWorkDetails() {
+  try {
+    const res = await getDoc(user_ref);
+    const data = res.data();
+
+    return data.workExperienceDetails;
+  } catch (error) {
+    console.error("Error getting all work experience details:", error);
+  }
+}
+
+export async function updateWorkExperienceDetails(updatedWorkData) {
+  try {
+    const res = await setDoc(
+      user_ref,
+      {
+        workExperienceDetails: updatedWorkData,
+      },
+      { merge: true }
+    );
+
+    return res;
+  } catch (error) {
+    console.error("Error updating work experience details:", error);
+  }
+}
