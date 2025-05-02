@@ -18,6 +18,14 @@
   @include  primary-btn-style($size-8px, $size-32px);
 }
 
+.btn--primary-2 {
+  background-color: $btn-white-bg;
+  padding: $size-8px  $size-32px;
+  border-radius: $size-4px;
+  border: $form-border-1;
+  color: $text-primary;
+}
+
 .btn__black--outline {
   border: 2px $base-black solid;
   padding: $size-8px  $size-32px;

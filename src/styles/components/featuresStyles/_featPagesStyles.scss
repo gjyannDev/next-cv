@@ -28,9 +28,14 @@
       flex-direction: column;
       gap: $size-24px;
     }
-
-    button {
-      align-self: flex-start;
+    
+    .grouped__btn--container {
+      display: flex;
+      gap: $size-24px;
+      
+      button {
+        align-self: flex-start;
+      }
     }
   }
 
