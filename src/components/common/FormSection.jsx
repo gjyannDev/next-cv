@@ -1,6 +1,7 @@
 import PersonalDetailsMode from "../../features/personalDetails/PersonalDetailsMode";
 import TechnicalSkillsMode from "../../features/technicalSkillsDetails/TechnicalSkillsMode";
 import EducationDetailsMode from "../../features/educationDetails/EducationDetailsMode";
+import WorkExperienceMode from "../../features/workExpDetails/WorkExperienceMode";
 
 export default function FormSection({ sectionId }) {
   const renderFormContent = () => {
@@ -12,7 +13,7 @@ export default function FormSection({ sectionId }) {
       case 3:
         return <EducationDetailsMode />;
       case 4:
-        return console.log("Work Experience Details");
+        return <WorkExperienceMode />;
       default:
         return; //Return something if the section ID is not yet passed
     }
