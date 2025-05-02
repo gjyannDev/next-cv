@@ -135,3 +135,19 @@ export async function updateEducationDetails(updatedEducationData) {
     console.error("Error adding tools skills:", error);
   }
 }
+
+export async function addWorkExperienceDetails(workExperienceData) {
+  try {
+    const res = await updateDoc(
+      user_ref,
+      {
+        workExperienceDetails: arrayUnion(workExperienceData),
+      },
+      { merge: true }
+    );
+
+    return res;
+  } catch (error) {
+    console.error("Error adding work experience details:", error);
+  }
+}
