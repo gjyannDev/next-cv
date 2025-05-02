@@ -31,7 +31,6 @@ export default function FetchData() {
 
         const get_all_education = await getAllEducationDetails();
         setFetchedAllEducationDetails(get_all_education || []);
-
       } catch (err) {
         console.error("Error fetching personal details:", err);
       }
@@ -46,5 +45,6 @@ export default function FetchData() {
     fetchedFrameWorksSkills,
     fetchedToolsSkills,
     fetchedAllEducationDetails,
+    setFetchedAllEducationDetails,
   };
 }

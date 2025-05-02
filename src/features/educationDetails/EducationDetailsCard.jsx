@@ -1,13 +1,15 @@
 import FetchData from "../../services/cv/FetchData";
 import { getYearDate } from "../../services/cv/utils";
 import trashIcon from "/src/assets/icons/trash_icon.png";
+import { updateEducationDetails } from "../../services/api/cvService";
 
 export default function EducationDetailsCard({
   setStatus,
   setEditEducationData,
   setEducationCardId,
 }) {
-  const { fetchedAllEducationDetails } = FetchData();
+  const { fetchedAllEducationDetails, setFetchedAllEducationDetails } =
+    FetchData();
 
   function handleCardClick(cardId) {
     const filtered_details = fetchedAllEducationDetails.filter(
@@ -21,9 +23,17 @@ export default function EducationDetailsCard({
     setEducationCardId(cardId);
   }
 
-  function handleRemoveEducationDetails(e) {
-    e.stopPropagation();
-    alert("Clicked the Button only");
+  function handleRemoveEducationDetails(event, cardId) {
+    event.stopPropagation();
+
+    const education_details = [...fetchedAllEducationDetails];
+
+    const filtered_details = education_details.filter(
+      (education) => education.id !== cardId
+    );
+
+    updateEducationDetails(filtered_details);
+    setFetchedAllEducationDetails(filtered_details);
   }
 
   return (
@@ -41,7 +51,7 @@ export default function EducationDetailsCard({
           <div className="education__card--right">
             <button
               type="button"
-              onClick={handleRemoveEducationDetails}
+              onClick={(e) => handleRemoveEducationDetails(e, education.id)}
             >
               <img
                 src={trashIcon}
