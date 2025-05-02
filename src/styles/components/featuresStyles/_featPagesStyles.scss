@@ -43,17 +43,17 @@
     @include card-style( $size-24px, $size-28px, $box-shadow-1);
   }
 
-  .education__details--card {
+  .education__details--card, .work__details--card {
     display: flex;
     flex-direction: column;
     gap: $size-12px;
-    .education__card {
+    .education__card, .work__card{
       @include card-style( $size-12px, $size-28px, none);
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      .education__card--left {
+      .education__card--left, .work__card--left {
         display: flex;
         flex-direction: column;
         gap: $size-4px;
@@ -63,7 +63,7 @@
         }
       }
 
-      .education__card--right {
+      .education__card--right, .work__card--right{
 
         img {
           width: $size-24px;
