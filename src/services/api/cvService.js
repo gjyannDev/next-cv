@@ -114,11 +114,24 @@ export async function getAllEducationDetails() {
     const res = await getDoc(user_ref);
     const data = res.data();
 
-    console.log(data);
-    console.log(data.educationDetails);
-
     return data.educationDetails;
   } catch (error) {
     console.error("Error getting all education details:", error);
+  }
+}
+
+export async function updateEducationDetails(updatedEducationData) {
+  try {
+    const res = await setDoc(
+      user_ref,
+      {
+        educationDetails: updatedEducationData,
+      },
+      { merge: true }
+    );
+
+    return res;
+  } catch (error) {
+    console.error("Error adding tools skills:", error);
   }
 }
