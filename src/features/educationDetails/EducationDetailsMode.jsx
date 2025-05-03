@@ -2,8 +2,7 @@ import { useState } from "react";
 import EducationDetailsForm from "./EducationDetailsForm";
 import EducationDetailsCard from "./EducationDetailsCard";
 
-export default function EducationDetailsMode() {
-  const [educationStatus, setEducationStatus] = useState("add education");
+export default function EducationDetailsMode({status, setStatus}) {
   const [editEducationData, setEditEducationData] = useState([]);
   const [educationCardId, setEducationCardId] = useState("");
 
@@ -50,23 +49,23 @@ export default function EducationDetailsMode() {
     <div className="education__details--container">
       <h1>Education Details</h1>
 
-      {educationStatus === "add education" ? (
+      {status === "add" ? (
         <EducationDetailsForm
           inputDetails={education_details_inputs}
-          status={educationStatus}
-          setStatus={setEducationStatus}
+          status={status}
+          setStatus={setStatus}
         />
-      ) : educationStatus === "edit education" ? (
+      ) : status === "edit" ? (
         <EducationDetailsForm
           inputDetails={education_details_inputs}
-          status={educationStatus}
-          setStatus={setEducationStatus}
+          status={status}
+          setStatus={setStatus}
           editEducationData={editEducationData}
           educationCardId={educationCardId}
         />
       ) : (
         <EducationDetailsCard
-          setStatus={setEducationStatus}
+          setStatus={setStatus}
           setEditEducationData={setEditEducationData}
           setEducationCardId={setEducationCardId}
         />

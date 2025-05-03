@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import PersonalDetailsCard from "./PersonalDetailsCard";
 

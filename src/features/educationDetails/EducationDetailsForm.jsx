@@ -18,7 +18,7 @@ export default function EducationDetailsForm({
   const id = crypto.randomUUID();
 
   useEffect(() => {
-    if (status === "edit education") {
+    if (status === "edit") {
       editEducationData.forEach((data) => {
         setChangeFormValue(data);
       });
@@ -36,9 +36,9 @@ export default function EducationDetailsForm({
       ...data,
     };
 
-    if (status === "add education") {
+    if (status === "add") {
       addEducationDetails(params);
-    } else if (status === "edit education") {
+    } else if (status === "edit") {
       const updated_arr = [...fetchedAllEducationDetails];
 
       const new_updated_arr = updated_arr.map((education) => {
@@ -60,7 +60,7 @@ export default function EducationDetailsForm({
       }, {})
     );
 
-    setStatus("card education");
+    setStatus("card");
   }
 
   function handleOnChange(e) {
@@ -85,11 +85,11 @@ export default function EducationDetailsForm({
             />
           ))}
           <div className="grouped__btn--container">
-            {status === "edit education" && (
+            {status === "edit" && (
               <button
                 type="submit"
                 className="btn--primary-2"
-                onClick={() => setStatus("card education")}
+                onClick={() => setStatus("card")}
               >
                 Cancel
               </button>

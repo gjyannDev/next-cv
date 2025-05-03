@@ -18,7 +18,7 @@ export default function EducationDetailsCard({
 
     setEditEducationData(filtered_details);
 
-    setStatus("edit education");
+    setStatus("edit");
 
     setEducationCardId(cardId);
   }
