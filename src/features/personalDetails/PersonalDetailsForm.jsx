@@ -13,7 +13,7 @@ export default function PersonalDetailsForm({
   const { fetchedPersonalDetails } = FetchData();
 
   useEffect(() => {
-    if (status === "edit details") {
+    if (status === "edit") {
       setChangeFormValue(fetchedPersonalDetails);
     }
   }, [status, fetchedPersonalDetails]);
@@ -36,7 +36,7 @@ export default function PersonalDetailsForm({
 
     addPersonalDetails(data);
 
-    setStatus("card details");
+    setStatus("card");
   }
 
   function handleOnChange(e) {
@@ -66,7 +66,7 @@ export default function PersonalDetailsForm({
               <button
                 type="submit"
                 className="btn--primary-2"
-                onClick={() => setStatus("card details")}
+                onClick={() => setStatus("card")}
               >
                 Cancel
               </button>

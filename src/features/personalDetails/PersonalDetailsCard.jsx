@@ -4,7 +4,7 @@ export default function PersonalDetailsCard({setStatus}) {
   const { fetchedPersonalDetails } = FetchData();
   
   return (
-    <div className="personal__details--card" onClick={() => { setStatus("edit details") }}>
+    <div className="personal__details--card" onClick={() => { setStatus("edit") }}>
       <h3>{fetchedPersonalDetails.full_name}</h3>
       <p>{fetchedPersonalDetails.job_title}</p>
       <p>{fetchedPersonalDetails.email}</p>

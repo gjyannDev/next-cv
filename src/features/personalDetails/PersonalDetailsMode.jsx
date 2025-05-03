@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import PersonalDetailsCard from "./PersonalDetailsCard";
 
 //TODO: when i change sidebar i need to track the previous status so if i go back to the personal details then it will stay that way
-export default function PersonalDetailsMode() {
-  const [status, setStatus] = useState("add details");
+export default function PersonalDetailsMode({status, setStatus}) {
   const [personalDetails, setPersonalDetails] = useState({});
-
+  
   const personal_details_inputs = [
     {
       labelName: "Full Name",
@@ -44,14 +43,14 @@ export default function PersonalDetailsMode() {
     <div className="personal__details--container">
       <h1>Personal Details</h1>
 
-      {status === "add details" ? (
+      {status === "add" ? (
         <PersonalDetailsForm
           inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}
           formType={status}
           setStatus={setStatus}
         />
-      ) : status === "edit details" ? (
+      ) : status === "edit" ? (
         <PersonalDetailsForm
           inputDetails={personal_details_inputs}
           getPersonalDetails={setPersonalDetails}

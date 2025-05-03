@@ -3,11 +3,17 @@ import TechnicalSkillsMode from "../../features/technicalSkillsDetails/Technical
 import EducationDetailsMode from "../../features/educationDetails/EducationDetailsMode";
 import WorkExperienceMode from "../../features/workExpDetails/WorkExperienceMode";
 
-export default function FormSection({ sectionId }) {
+export default function FormSection({ sectionId, status, setStatus}) {
+
   const renderFormContent = () => {
     switch (sectionId) {
       case 1:
-        return <PersonalDetailsMode />;
+        return (
+          <PersonalDetailsMode
+            status={status}
+            setStatus={setStatus}
+          />
+        );
       case 2:
         return <TechnicalSkillsMode />;
       case 3:
