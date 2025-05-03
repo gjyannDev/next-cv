@@ -5,10 +5,25 @@ import FormSection from "./components/common/FormSection";
 
 export default function App() {
   const [sectionId, setSectionId] = useState(null);
+  const [sideBarStatus, setSideBarStatusMap] = useState({
+    personal: "add",
+    technical: "add",
+    education: "add",
+    work: "add",
+  });
 
   function getActiveSectionId(sectionId) {
     setSectionId(sectionId);
   }
+
+  function handleSideBarStatusChange(sectionId, newStatus) {
+    setSideBarStatusMap((prev) => ({
+      ...prev,
+      [sectionId]: newStatus,
+    }));
+  }
+
+  const currentSideBarStatus = sideBarStatus[sectionId] || "add";
 
   return (
     <div className="app">
@@ -26,7 +41,13 @@ export default function App() {
 
         <main className="cv__content--container">
           {/* Form Sections and Preview Section*/}
-          <FormSection sectionId={sectionId} />
+          <FormSection
+            sectionId={sectionId}
+            status={currentSideBarStatus}
+            setStatus={(newStatus) =>
+              handleSideBarStatusChange(sectionId, newStatus)
+            }
+          />
         </main>
       </div>
     </div>
