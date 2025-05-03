@@ -50,6 +50,7 @@ export default function InputFields({
           <textarea
             name={name}
             className="text__area"
+            value={value}
           ></textarea>
         </div>
       ) : (

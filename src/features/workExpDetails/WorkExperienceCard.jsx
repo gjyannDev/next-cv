@@ -27,9 +27,7 @@ export default function WorkExperienceCard({
 
     const work_details = [...fetchedAllWorkExpDetails];
 
-    const filtered_details = work_details.filter(
-      (work) => work.id !== cardId
-    );
+    const filtered_details = work_details.filter((work) => work.id !== cardId);
 
     updateWorkExperienceDetails(filtered_details);
     setFetchedAllWorkExpDetails(filtered_details);
