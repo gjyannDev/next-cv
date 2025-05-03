@@ -7,13 +7,16 @@
   box-shadow: $box-shadow;
 }
 
-.personal__details--container, .education__details--container, .skills__details--container, .work__details--container{
+.personal__details--container,
+.education__details--container,
+.skills__details--container,
+.work__details--container {
   display: flex;
   flex-direction: column;
   gap: $size-20px;
 
   .content__form--container {
-    @include card-style( $size-40px, $size-28px, $box-shadow-1);
+    @include card-style($size-40px, $size-28px, $box-shadow-1);
   }
 
   h1 {
@@ -21,18 +24,18 @@
   }
 
   .form__container {
-    @include card-style( $size-40px, $size-28px, $box-shadow-1);
+    @include card-style($size-40px, $size-28px, $box-shadow-1);
 
     form {
       display: flex;
       flex-direction: column;
       gap: $size-24px;
     }
-    
+
     .grouped__btn--container {
       display: flex;
       gap: $size-24px;
-      
+
       button {
         align-self: flex-start;
       }
@@ -40,30 +43,35 @@
   }
 
   .personal__details--card {
-    @include card-style( $size-24px, $size-28px, $box-shadow-1);
+    @include card-style($size-24px, $size-28px, $box-shadow-1);
   }
 
-  .education__details--card, .work__details--card {
+  .education__details--card,
+  .work__details--card {
     display: flex;
     flex-direction: column;
     gap: $size-12px;
-    .education__card, .work__card{
-      @include card-style( $size-12px, $size-28px, none);
+
+    .education__card,
+    .work__card {
+      @include card-style($size-12px, $size-28px, none);
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      .education__card--left, .work__card--left {
+      .education__card--left,
+      .work__card--left {
         display: flex;
         flex-direction: column;
         gap: $size-4px;
-        
+
         h1 {
           font-size: $size-20px;
         }
       }
 
-      .education__card--right, .work__card--right{
+      .education__card--right,
+      .work__card--right {
 
         img {
           width: $size-24px;
