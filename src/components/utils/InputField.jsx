@@ -51,6 +51,7 @@ export default function InputFields({
             name={name}
             className="text__area"
             value={value}
+            onChange={onChange}
           ></textarea>
         </div>
       ) : (
