@@ -2,8 +2,7 @@ import { useState } from "react";
 import WorkExperienceForm from "./WorkExperienceForm";
 import WorkExperienceCard from "./WorkExperienceCard";
 
-export default function WorkExperienceMode() {
-  const [status, setStatus] = useState("add work");
+export default function WorkExperienceMode({status, setStatus}) {
   const [workExperienceData, setWorkExperienceData] = useState([]);
   const [workCardId, setWorkCardId] = useState("");
 
@@ -44,13 +43,13 @@ export default function WorkExperienceMode() {
     <div className="work__details--container">
       <h1>Work Experience Details</h1>
 
-      {status === "add work" ? (
+      {status === "add" ? (
         <WorkExperienceForm
           inputDetails={work_input_details}
           status={status}
           setStatus={setStatus}
         />
-      ) : status === "edit work" ? (
+      ) : status === "edit" ? (
         <WorkExperienceForm
           inputDetails={work_input_details}
           status={status}

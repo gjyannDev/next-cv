@@ -18,7 +18,7 @@ export default function WorkExperienceForm({
   const id = crypto.randomUUID();
 
   useEffect(() => {
-    if (status === "edit work") {
+    if (status === "edit") {
       editWorkData.forEach((data) => {
         setChangeFormValue(data);
       });
@@ -36,9 +36,9 @@ export default function WorkExperienceForm({
       ...data,
     };
 
-    if (status === "add work") {
+    if (status === "add") {
       addWorkExperienceDetails(params);
-    } else if (status === "edit work") {
+    } else if (status === "edit") {
       const updated_arr = [...fetchedAllWorkExpDetails];
       const new_updated_arr = updated_arr.map((education) => {
         if (education.id === workCardId) {
@@ -58,7 +58,7 @@ export default function WorkExperienceForm({
       }, {})
     );
 
-    setStatus("card work");
+    setStatus("card");
   }
 
   function handleOnChange(e) {
@@ -83,11 +83,11 @@ export default function WorkExperienceForm({
             />
           ))}
           <div className="grouped__btn--container">
-            {status === "edit work" && (
+            {status === "edit" && (
               <button
                 type="submit"
                 className="btn--primary-2"
-                onClick={() => setStatus("card work")}
+                onClick={() => setStatus("card")}
               >
                 Cancel
               </button>

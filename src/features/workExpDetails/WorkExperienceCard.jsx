@@ -17,7 +17,7 @@ export default function WorkExperienceCard({
 
     setEditWorkData(filtered_details);
 
-    setStatus("edit work");
+    setStatus("edit");
 
     setWorkId(cardId);
   }

@@ -23,7 +23,12 @@ export default function FormSection({ sectionId, status, setStatus }) {
           />
         );
       case 4:
-        return <WorkExperienceMode />;
+        return (
+          <WorkExperienceMode
+            status={status}
+            setStatus={setStatus}
+          />
+        );
       default:
         return; //Return something if the section ID is not yet passed
     }

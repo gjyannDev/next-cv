@@ -7,7 +7,6 @@ export default function App() {
   const [sectionId, setSectionId] = useState(null);
   const [sideBarStatus, setSideBarStatusMap] = useState({
     personal: "add",
-    technical: "add",
     education: "add",
     work: "add",
   });
@@ -16,7 +15,7 @@ export default function App() {
     setSectionId(sectionId);
   }
 
-  function handleSideBarStatusChange(sectionId, newStatus) {
+  function handleSideBarStatusChange(sectionId = null, newStatus) {
     setSideBarStatusMap((prev) => ({
       ...prev,
       [sectionId]: newStatus,
