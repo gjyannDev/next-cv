@@ -1,10 +1,10 @@
 import InputFields from "../../../components/utils/InputField";
 
 export default function TechnicalSkillsDynamicForm({
-  formLabel,
+  formLabel = "",
   skillData,
   onChange,
-  onBlur,
+  onBlur = () => {},
   handleRemoveSkills,
   handleAddSkills,
 }) {
@@ -40,6 +40,7 @@ export default function TechnicalSkillsDynamicForm({
         <button
           className="btn__black--outline add__more--btn"
           onClick={handleAddSkills}
+          type="button"
         >
           Add more
         </button>
