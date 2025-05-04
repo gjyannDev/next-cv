@@ -1,8 +1,23 @@
 import TechnicalSkillsDynamicForm from "../technicalSkillsDetails/forms/TechnicalSkillsDynamicForm";
 import { useEffect, useState } from "react";
+import FetchData from "../../services/cv/FetchData";
 
-export default function EducationDescriptionForm({ getEducationDescription }) {
+export default function EducationDescriptionForm({
+  getEducationDescription,
+  educationCardId,
+}) {
   const [educationDescription, setEducationDescription] = useState(["", ""]);
+  const { fetchedAllEducationDetails } = FetchData();
+
+  useEffect(() => {
+    const education = fetchedAllEducationDetails.find(
+      (edu) => edu.id === educationCardId
+    );
+
+    if (education) {
+      setEducationDescription(education.description);
+    }
+  }, [educationCardId, fetchedAllEducationDetails]);
 
   useEffect(() => {
     getEducationDescription(educationDescription);
