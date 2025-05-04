@@ -1,0 +1,12 @@
+.preview__page--container {
+  width: 215.9mm;
+  min-height: 279.4mm;
+  margin: auto;
+  padding: 2rem;
+  background: $bg-primary;
+  color: $text-primary;
+  box-shadow: $box-shadow-2;
+  transform: scale(0.7); 
+  transform-origin: top center;
+  overflow-x: hidden;
+}

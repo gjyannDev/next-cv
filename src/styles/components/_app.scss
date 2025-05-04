@@ -1,9 +1,13 @@
 .main__content {
   display: flex;
   margin-top: $size-104px;
-  margin-bottom: $size-96px;
+  margin-bottom: $size-204px;
+  // border: 1px solid red;
   
   .cv__content--container {
-    margin-left: $size-104px;
+    margin-left: $size-72px;
+    width: 80vw;
+    height: 100vh;
+    display: flex;
   }
 }
