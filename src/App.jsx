@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/layout/Header";
 import Sidebar from "./components/layout/Sidebar";
 import FormSection from "./components/common/FormSection";
+import PreviewPage from "./features/previewPage/PreviewPage";
 import visionIcon from "/src/assets/icons/vision.svg";
 import bullseyeIcon from "/src/assets/icons/bullseye.svg";
 
@@ -50,7 +51,7 @@ export default function App() {
             >
               <img
                 src={showPreview ? bullseyeIcon : visionIcon}
-                alt=""
+                alt={showPreview ? "bullseye icon" : "vision icon"}
               />
             </button>
           </div>
@@ -65,7 +66,9 @@ export default function App() {
               handleSideBarStatusChange(sectionId, newStatus)
             }
           />
+          {showPreview ? <PreviewPage /> : null}
         </main>
+
       </div>
     </div>
   );
