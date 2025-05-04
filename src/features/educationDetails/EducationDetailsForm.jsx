@@ -5,6 +5,7 @@ import {
   updateEducationDetails,
 } from "../../services/api/cvService";
 import FetchData from "../../services/cv/FetchData";
+import EducationDescriptionForm from "./EducationDescriptionForm";
 
 export default function EducationDetailsForm({
   inputDetails = [],
@@ -84,6 +85,7 @@ export default function EducationDetailsForm({
               onChange={handleOnChange}
             />
           ))}
+          {<EducationDescriptionForm />}
           <div className="grouped__btn--container">
             {status === "edit" && (
               <button
