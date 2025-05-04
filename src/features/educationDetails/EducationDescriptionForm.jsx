@@ -56,7 +56,7 @@ export default function EducationDescriptionForm({
 
   return (
     <div className="education__description--container">
-      <h3>Description</h3>
+      <h3>Additional Info (ex. awards, thesis project)</h3>
       <TechnicalSkillsDynamicForm
         skillData={educationDescription}
         onChange={handleOnChange}
