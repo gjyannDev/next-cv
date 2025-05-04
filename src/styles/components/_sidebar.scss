@@ -1,18 +1,34 @@
+@mixin side-bar($width, $height) {
+  width: $width;
+  height: $height;
+  background-color: $base-black;
+  border-radius: $size-12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .side__nav--container {
+  display: flex;
+  flex-direction: column;
+  gap: $size-32px;
 
   .side__bar--contents {
-    background-color: $base-black;
-    width: $size-72px;
-    height: $size-280px;
-    border-radius: $size-12px;
-    display: flex;
+    @include side-bar($size-72px, $size-280px);
     flex-direction: column;
     gap: $size-20px;
-    justify-content: center;
-    align-items: center;
 
     img {
       width: $size-40px;
+    }
+  }
+
+  .preview__nav--container {
+    @include side-bar($size-72px, $size-72px);
+
+    img {
+      width: $size-40px;
+      filter: invert(1);
     }
   }
 }
