@@ -2,6 +2,8 @@ import { useState } from "react";
 import Header from "./components/layout/Header";
 import Sidebar from "./components/layout/Sidebar";
 import FormSection from "./components/common/FormSection";
+import visionIcon from "/src/assets/icons/vision.svg";
+import bullseyeIcon from "/src/assets/icons/bullseye.svg";
 
 export default function App() {
   const [sectionId, setSectionId] = useState(1);
@@ -36,6 +38,14 @@ export default function App() {
             getActiveSectionId={getActiveSectionId}
             sectionId={sectionId}
           />
+          <div className="preview__nav--container">
+            <button type="button">
+              <img
+                src={bullseyeIcon}
+                alt=""
+              />
+            </button>
+          </div>
         </nav>
 
         <main className="cv__content--container">
