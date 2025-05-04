@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { addLanguageSkill } from "../../../services/api/cvService";
-import TechnicalSkillsDynamicForm from "./TechnicalSkillsDynamicForm";
+import BulletPointsListForm from "../../../components/common/BulletPointsListForm";
 import FetchData from "../../../services/cv/FetchData";
 
 export default function LanguageSkillsForm() {
@@ -48,7 +48,7 @@ export default function LanguageSkillsForm() {
 
   return (
     <div className="language__form--container">
-      <TechnicalSkillsDynamicForm
+      <BulletPointsListForm
         formLabel={"Programming Languages"}
         skillData={languageInputs}
         onChange={handleOnChange}

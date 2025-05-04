@@ -5,8 +5,8 @@ import {
   updateEducationDetails,
 } from "../../services/api/cvService";
 import FetchData from "../../services/cv/FetchData";
-import EducationDescriptionForm from "./EducationDescriptionForm";
-
+import DescriptionDynamicForm from "../../components/common/DescriptionDynamicForm";
+  
 export default function EducationDetailsForm({
   inputDetails = [],
   status,
@@ -18,6 +18,7 @@ export default function EducationDetailsForm({
   const { fetchedAllEducationDetails } = FetchData();
   const id = crypto.randomUUID();
   const [educationDes, setEducationDes] = useState([]);
+  const [educationDesData, setEducationDesData] = useState(["", ""]);
 
   useEffect(() => {
     if (status === "edit") {
@@ -88,9 +89,12 @@ export default function EducationDetailsForm({
             />
           ))}
           {
-            <EducationDescriptionForm
-              getEducationDescription={setEducationDes}
-              educationCardId={educationCardId}
+            <DescriptionDynamicForm
+              getDescription={setEducationDes}
+              selectedCardId={educationCardId}
+              label="Additional Info (ex. awards, thesis project)"
+              initialDescriptionValue={educationDesData}
+              fetchDetails={fetchedAllEducationDetails}
             />
           }
           <div className="grouped__btn--container">

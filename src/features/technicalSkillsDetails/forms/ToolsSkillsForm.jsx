@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { addToolsSkills } from "../../../services/api/cvService";
-import TechnicalSkillsDynamicForm from "./TechnicalSkillsDynamicForm";
+import BulletPointsListForm from "../../../components/common/BulletPointsListForm";
 import FetchData from "../../../services/cv/FetchData";
 
 export default function ToolsSkillsForm() {
@@ -48,7 +48,7 @@ export default function ToolsSkillsForm() {
 
   return (
     <div className="language__form--container">
-      <TechnicalSkillsDynamicForm
+      <BulletPointsListForm
         formLabel={"Tools & Other Technologies"}
         skillData={tools}
         onChange={handleOnChange}

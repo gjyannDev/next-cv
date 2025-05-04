@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { addFrameWorksSkill } from "../../../services/api/cvService";
-import TechnicalSkillsDynamicForm from "./TechnicalSkillsDynamicForm";
+import BulletPointsListForm from "../../../components/common/BulletPointsListForm";
 import FetchData from "../../../services/cv/FetchData";
 
 export default function FrameworksSkillsForm() {
@@ -48,7 +48,7 @@ export default function FrameworksSkillsForm() {
 
   return (
     <div className="language__form--container">
-      <TechnicalSkillsDynamicForm
+      <BulletPointsListForm
         formLabel={"Frameworks, Libraries, and Databases"}
         skillData={frameWorks}
         onChange={handleOnChange}

@@ -1,6 +1,6 @@
-import InputFields from "../../../components/utils/InputField";
+import InputFields from "../utils/InputField";
 
-export default function TechnicalSkillsDynamicForm({
+export default function BulletPointsListForm({
   formLabel = "",
   skillData,
   onChange,
