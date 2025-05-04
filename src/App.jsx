@@ -12,6 +12,7 @@ export default function App() {
     education: "add",
     work: "add",
   });
+  const [showPreview, setShowPreview] = useState(false);
 
   function getActiveSectionId(sectionId) {
     setSectionId(sectionId);
@@ -22,6 +23,10 @@ export default function App() {
       ...prev,
       [sectionId]: newStatus,
     }));
+  }
+
+  function handlePreview() {
+    setShowPreview((prev) => !prev);
   }
 
   const currentSideBarStatus = sideBarStatus[sectionId] || "add";
@@ -39,9 +44,12 @@ export default function App() {
             sectionId={sectionId}
           />
           <div className="preview__nav--container">
-            <button type="button">
+            <button
+              type="button"
+              onClick={handlePreview}
+            >
               <img
-                src={bullseyeIcon}
+                src={showPreview ? bullseyeIcon : visionIcon}
                 alt=""
               />
             </button>
