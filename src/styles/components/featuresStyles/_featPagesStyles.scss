@@ -81,7 +81,7 @@
   }
 }
 
-.language__form--container {
+.language__form--container  {
   margin-top: $size-40px;
 
   .form__title {
@@ -107,6 +107,35 @@
     .add__more--btn {
       align-self: center;
       margin-top: $size-44px;
+    }
+  }
+}
+
+.education__description--container  {
+
+  h3 {
+    margin-bottom: $size-8px;
+  }
+
+  .language__form--contents {
+    display: flex;
+    flex-direction: column;
+    gap: $size-12px;
+
+    .language__input--container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: $size-20px;
+      }
+    }
+
+    .add__more--btn {
+      align-self: flex-start;
+      margin-top: $size-24px;
+      padding: $size-8px $size-12px;
     }
   }
 }
