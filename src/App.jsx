@@ -4,7 +4,7 @@ import Sidebar from "./components/layout/Sidebar";
 import FormSection from "./components/common/FormSection";
 
 export default function App() {
-  const [sectionId, setSectionId] = useState(null);
+  const [sectionId, setSectionId] = useState(1);
   const [sideBarStatus, setSideBarStatusMap] = useState({
     personal: "add",
     education: "add",
