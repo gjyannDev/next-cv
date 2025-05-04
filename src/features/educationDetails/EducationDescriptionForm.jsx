@@ -1,8 +1,12 @@
 import TechnicalSkillsDynamicForm from "../technicalSkillsDetails/forms/TechnicalSkillsDynamicForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function EducationDescriptionForm() {
+export default function EducationDescriptionForm({ getEducationDescription }) {
   const [educationDescription, setEducationDescription] = useState(["", ""]);
+
+  useEffect(() => {
+    getEducationDescription(educationDescription);
+  }, [getEducationDescription, educationDescription]);
 
   function handleAddMoreDescription() {
     setEducationDescription([...educationDescription, ""]);

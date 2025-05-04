@@ -17,6 +17,9 @@ export default function EducationDetailsForm({
   const [changeFormValue, setChangeFormValue] = useState({});
   const { fetchedAllEducationDetails } = FetchData();
   const id = crypto.randomUUID();
+  //TODO: create state to get the data from the education description form
+  const [educationDes, setEducationDes] = useState([]);
+
 
   useEffect(() => {
     if (status === "edit") {
@@ -34,6 +37,7 @@ export default function EducationDetailsForm({
 
     const params = {
       id: id,
+      description: [...educationDes],
       ...data,
     };
 
@@ -85,7 +89,7 @@ export default function EducationDetailsForm({
               onChange={handleOnChange}
             />
           ))}
-          {<EducationDescriptionForm />}
+          {<EducationDescriptionForm getEducationDescription={setEducationDes}/>}
           <div className="grouped__btn--container">
             {status === "edit" && (
               <button
