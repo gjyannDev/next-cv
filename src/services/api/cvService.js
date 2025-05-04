@@ -1,11 +1,10 @@
 import {
-  addDoc,
   getDoc,
   setDoc,
   arrayUnion,
   updateDoc,
 } from "firebase/firestore";
-import { col_ref, db, user_ref } from "../firebaseClient";
+import { user_ref } from "../firebaseClient";
 
 export async function getPersonalDetails() {
   try {
@@ -178,3 +177,4 @@ export async function updateWorkExperienceDetails(updatedWorkData) {
     console.error("Error updating work experience details:", error);
   }
 }
+
