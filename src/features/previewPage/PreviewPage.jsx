@@ -1,6 +1,7 @@
 import PersonalDetailsSection from "./resumeSections/PersonalDetailsSection";
 import EducationDetailsSection from "./resumeSections/educationDetailsSection";
 import WorkExperienceSection from "./resumeSections/WorkExperienceSection";
+import TechnicalSkillsSection from "./resumeSections/TechnicalSkillsSection";
 
 export default function PreviewPage({ resumeData }) {
   return (
@@ -9,6 +10,7 @@ export default function PreviewPage({ resumeData }) {
       <div className="resume__body--contents">
         <EducationDetailsSection data={resumeData.education} />
         <WorkExperienceSection data={resumeData.workExperience} />
+        <TechnicalSkillsSection data={resumeData.technicalSkills} />
       </div>
     </div>
   );
