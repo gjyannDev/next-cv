@@ -2,10 +2,55 @@
   width: 215.9mm;
   min-height: 279.4mm;
   margin: auto;
-  padding: 2rem;
+  padding: 1rem;
   background: $bg-primary;
   color: $text-primary;
   box-shadow: $box-shadow-2;
-  transform: scale(0.7); 
+  transform: scale(0.9); 
   transform-origin: top center;
+
+  .personal__details--section {
+    // border: 1px solid red;
+    height: $size-172px;
+    display: flex;
+    flex-direction: column;
+    gap: $size-16px;
+
+    .personal__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $size-8px;
+
+      h1 {
+        font-size: $size-32px;
+      }
+  
+      p {
+        font-size: $size-16px;
+      }
+    }
+
+    .personal__others--container {
+      display: flex;
+      justify-content: center;
+      gap: $size-8px;
+
+      .details__container {
+        display: flex;
+        align-items: center;
+        gap: $size-4px;
+
+        img {
+          width: $size-20px;
+        }
+
+        p {
+          font-size: 0.9rem;
+          line-height: 1.2;
+          margin: 0 0.365rem;
+        }
+      }
+    }
+  }
 }
