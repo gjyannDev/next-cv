@@ -121,6 +121,18 @@
           display: flex;
           justify-content: space-between;
         }
+
+        .card__content--third {
+          margin-top: $size-8px;
+
+          ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: $size-4px;
+          }
+        }
       }
     }
   }
