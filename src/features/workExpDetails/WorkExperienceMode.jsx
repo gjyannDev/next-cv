@@ -31,12 +31,6 @@ export default function WorkExperienceMode({status, setStatus}) {
       name: "end_date",
       withLabel: true,
     },
-    {
-      labelName: "Description",
-      inputType: "textarea",
-      name: "description",
-      withLabel: true,
-    },
   ];
 
   return (
