@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import FetchData from "../../services/cv/FetchData";
+import InputFields from "../../components/utils/InputField";
 import {
   addWorkExperienceDetails,
   updateWorkExperienceDetails,
 } from "../../services/api/cvService";
-import FeaturePagesForm from "../../components/common/FeaturePagesForm";
+import FetchData from "../../services/cv/FetchData";
+import DescriptionDynamicForm from "../../components/common/DescriptionDynamicForm";
 
 export default function WorkExperienceForm({
   inputDetails = [],
@@ -13,14 +14,16 @@ export default function WorkExperienceForm({
   editWorkData = [],
   workCardId = "",
 }) {
-  const [changeFormValue, setChangeFormValue] = useState({});
+  const [formValues, setFormValues] = useState({});
   const { fetchedAllWorkExpDetails } = FetchData();
   const id = crypto.randomUUID();
+  const [workDescriptions, setWorkDescriptions] = useState([]);
+  const [initialDescriptionValues, setInitialDescriptionValues] = useState(["", ""]);
 
   useEffect(() => {
     if (status === "edit") {
       editWorkData.forEach((data) => {
-        setChangeFormValue(data);
+        setFormValues(data);
       });
     }
   }, [status, editWorkData]);
@@ -28,32 +31,34 @@ export default function WorkExperienceForm({
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    const form_data = new FormData(e.target);
-    const data = Object.fromEntries(form_data);
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
 
     const params = {
       id: id,
+      description: [...workDescriptions],
       ...data,
     };
 
     if (status === "add") {
       addWorkExperienceDetails(params);
     } else if (status === "edit") {
-      const updated_arr = [...fetchedAllWorkExpDetails];
-      const new_updated_arr = updated_arr.map((education) => {
-        if (education.id === workCardId) {
+      const updatedArr = [...fetchedAllWorkExpDetails];
+
+      const newUpdatedArr = updatedArr.map((work) => {
+        if (work.id === workCardId) {
           return { ...params, id: workCardId };
         } else {
-          return education;
+          return work;
         }
       });
-      updateWorkExperienceDetails(new_updated_arr);
+
+      updateWorkExperienceDetails(newUpdatedArr);
     }
 
-    setChangeFormValue(
+    setFormValues(
       inputDetails.reduce((acc, curr) => {
         acc[curr.name] = "";
-
         return acc;
       }, {})
     );
@@ -63,22 +68,46 @@ export default function WorkExperienceForm({
 
   function handleOnChange(e) {
     const { name, value } = e.target;
-    setChangeFormValue((prevValues) => ({
-      ...prevValues,
+    setFormValues((prev) => ({
+      ...prev,
       [name]: value,
     }));
   }
 
   return (
-    <>
-      <FeaturePagesForm
-        handleOnSubmit={handleOnSubmit}
-        inputDetails={inputDetails}
-        value={changeFormValue}
-        handleOnChange={handleOnChange}
-        setStatus={setStatus}
-        status={status}
-      />
-    </>
+    <div className="form__container">
+      <form onSubmit={handleOnSubmit}>
+        {inputDetails.map((details) => (
+          <InputFields
+            labelName={details.labelName}
+            inputType={details.inputType}
+            name={details.name}
+            value={formValues[details.name] || ""}
+            onChange={handleOnChange}
+          />
+        ))}
+        <DescriptionDynamicForm
+          getDescription={setWorkDescriptions}
+          selectedCardId={workCardId}
+          label="Key Contributions (ex. projects, responsibilities)"
+          initialDescriptionValue={initialDescriptionValues}
+          fetchDetails={fetchedAllWorkExpDetails}
+        />
+        <div className="grouped__btn--container">
+          {status === "edit" && (
+            <button
+              type="submit"
+              className="btn--primary-2"
+              onClick={() => setStatus("card")}
+            >
+              Cancel
+            </button>
+          )}
+          <button type="submit" className="btn--primary">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
