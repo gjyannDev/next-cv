@@ -61,7 +61,17 @@ export default function EducationDetailsCard({
           </div>
         </div>
       ))}
-      {/*ADD Button to add education if you are on the education details card */}
+      <div className="add__details--container">
+        <button
+          type="button"
+          className="btn__black--outline"
+          onClick={() => {
+            setStatus("add");
+          }}
+        >
+          + Education
+        </button>
+      </div>
     </div>
   );
 }
