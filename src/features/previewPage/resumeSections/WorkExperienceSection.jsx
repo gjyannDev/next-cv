@@ -1,6 +1,9 @@
 import { getYearDate } from "../../../services/cv/utils";
 
 export default function WorkExperienceSection({ data }) {
+  // data.forEach((el) => {
+  //   el.description.for
+  // })
   return (
     <div className="work__details--section">
       <h1 className="resume__header--font">Work Experience</h1>
@@ -15,10 +18,16 @@ export default function WorkExperienceSection({ data }) {
               <h4>{getYearDate(work.start_date, work.end_date)}</h4>
             </div>
             <div className="card__content--second">
-              <p className="resume__header--font degree--text">{work.job_title}</p>
+              <p className="resume__header--font degree--text">
+                {work.job_title}
+              </p>
             </div>
             <div className="card__content--third">
-              {/* <p>{work.description}</p> */}
+              <ul>
+                {work.description.map((des) => (
+                  <li>{des}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
