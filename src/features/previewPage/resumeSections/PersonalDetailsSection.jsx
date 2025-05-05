@@ -9,18 +9,17 @@ function ContainerWithDetails({ alt, imgIcon, detail }) {
         src={imgIcon}
         alt={alt}
       />
-      <p>{detail}</p>
+      <p className="resume__body--font">{detail}</p>
     </div>
   );
 }
 
 export default function PersonalDetailsSection({ data }) {
-  console.log("personal data: ", data);
   return (
     <div className="personal__details--section">
       <div className="personal__info">
-        <h1>{data.full_name}</h1>
-        <p>{data.job_title}</p>
+        <h1 className="resume__header--font">{data.full_name}</h1>
+        <p className="resume__body--font">{data.job_title}</p>
       </div>
       <div className="personal__others--container">
         <ContainerWithDetails
