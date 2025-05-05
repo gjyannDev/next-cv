@@ -2,11 +2,11 @@
   width: 215.9mm;
   min-height: 279.4mm;
   margin: auto;
-  padding: 1rem;
+  padding: 2rem;
   background: $bg-primary;
   color: $text-primary;
   box-shadow: $box-shadow-2;
-  transform: scale(0.9); 
+  transform: scale(0.8); 
   transform-origin: top center;
 
   .resume__body--contents {
@@ -138,5 +138,39 @@
   }
 }
 
-//Font for header - Resume -->   font-family: "Merriweather", serif;
-//Font for body text - Resume -->    font-family: "Open Sans", sans-serif;
+.technical__details--section {
+  display: flex;
+  flex-direction: column;
+  gap: $size-12px;
+
+  h1 {
+    font-size: $size-24px;
+  }
+  
+  .technical__content--container {
+    display: flex;
+    flex-direction: column;
+    gap: $size-4px;
+
+    .skills__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; 
+      gap: $size-8px; 
+      border: none; 
+    
+      h4 {
+        font-size: 0.875rem;
+        flex-shrink: 0; 
+        width: 30%; 
+      }
+    
+      p {
+        font-size: 0.875rem;
+        flex-grow: 1; 
+        word-wrap: break-word; 
+        margin: 0;
+      }
+    }
+  }
+}
