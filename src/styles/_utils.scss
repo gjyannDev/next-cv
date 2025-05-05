@@ -89,3 +89,9 @@
 .resume__body--font {
   font-family: "Open Sans", sans-serif;
 }
+
+hr.custom--line {
+  border: none;
+  height: 0.075rem;
+  background-color: $base-black; /* green */
+}

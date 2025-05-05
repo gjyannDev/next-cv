@@ -10,7 +10,7 @@
   transform-origin: top center;
 
   .personal__details--section {
-    height: $size-172px;
+    height: $size-156px;
     display: flex;
     flex-direction: column;
     gap: $size-16px;
@@ -57,6 +57,43 @@
 
 .preview__page--container {
   
+  .education__details--section {
+    display: flex;
+    flex-direction: column;
+    gap: $size-12px;
+
+    h1 {
+      font-size: $size-24px;
+    }
+
+    .education__cards--container {
+      display: flex;
+      flex-direction: column;
+      gap: $size-24px;
+    }
+
+    .educ__resume--card {
+
+      .card__content--first, .card__content--second {
+        display: flex;
+        justify-content: space-between;
+        
+        .school--text {
+          font-size: $size-16px;
+        }
+
+       .address--text {
+        text-align: right;
+        font-size: 0.875rem;
+       }
+
+       .degree--text {
+        font-style: italic;
+        font-size: 0.875rem;
+       }
+      }
+    }
+  }
 }
 
 //Font for header - Resume -->   font-family: "Merriweather", serif;
