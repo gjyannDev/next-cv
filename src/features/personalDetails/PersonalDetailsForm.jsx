@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import InputFields from "../../components/utils/InputField";
 import { addPersonalDetails } from "../../services/api/cvService";
 import FetchData from "../../services/cv/FetchData";
+import FeaturePagesForm from "../../components/common/FeaturePagesForm";
 
 export default function PersonalDetailsForm({
   inputDetails = [],
@@ -48,39 +48,15 @@ export default function PersonalDetailsForm({
   }
 
   return (
-    <div className="form__container">
-      {
-        <form onSubmit={handleOnSubmit}>
-          {inputDetails.map((details) => (
-            <InputFields
-              labelName={details.labelName}
-              inputType={details.inputType}
-              name={details.name}
-              value={changeFormValue[details.name] || ""}
-              onChange={handleOnChange}
-            />
-          ))}
-
-          <div className="grouped__btn--container">
-            {status === "edit details" && (
-              <button
-                type="submit"
-                className="btn--primary-2"
-                onClick={() => setStatus("card")}
-              >
-                Cancel
-              </button>
-            )}
-
-            <button
-              type="submit"
-              className="btn--primary"
-            >
-              Save
-            </button>
-          </div>
-        </form>
-      }
-    </div>
+    <>
+      <FeaturePagesForm
+        handleOnSubmit={handleOnSubmit}
+        inputDetails={inputDetails}
+        value={changeFormValue}
+        handleOnChange={handleOnChange}
+        setStatus={setStatus}
+        status={status}
+      />
+    </>
   );
 }
