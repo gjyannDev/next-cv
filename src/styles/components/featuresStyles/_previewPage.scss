@@ -10,7 +10,6 @@
   transform-origin: top center;
 
   .personal__details--section {
-    // border: 1px solid red;
     height: $size-172px;
     display: flex;
     flex-direction: column;
@@ -28,6 +27,7 @@
   
       p {
         font-size: $size-16px;
+        font-weight: 600;
       }
     }
 
@@ -54,3 +54,10 @@
     }
   }
 }
+
+.preview__page--container {
+  
+}
+
+//Font for header - Resume -->   font-family: "Merriweather", serif;
+//Font for body text - Resume -->    font-family: "Open Sans", sans-serif;
