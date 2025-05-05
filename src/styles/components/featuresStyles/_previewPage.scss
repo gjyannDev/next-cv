@@ -9,8 +9,14 @@
   transform: scale(0.9); 
   transform-origin: top center;
 
+  .resume__body--contents {
+    display: flex;
+    flex-direction: column;
+    gap: $size-40px;
+  }
+
   .personal__details--section {
-    height: $size-156px;
+    height: $size-140px;
     display: flex;
     flex-direction: column;
     gap: $size-16px;
@@ -91,6 +97,30 @@
         font-style: italic;
         font-size: 0.875rem;
        }
+      }
+    }
+  }
+}
+
+.preview__page--container {
+  
+  .work__details--section {
+    display: flex;
+    flex-direction: column;
+    gap: $size-12px;
+
+    h1 {
+      font-size: $size-24px;
+    }
+
+    .work__card--container {
+
+      .work__resume--card {
+
+        .card__content--first {
+          display: flex;
+          justify-content: space-between;
+        }
       }
     }
   }
