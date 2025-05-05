@@ -5,6 +5,7 @@ import FormSection from "./components/common/FormSection";
 import PreviewPage from "./features/previewPage/PreviewPage";
 import visionIcon from "/src/assets/icons/vision.svg";
 import bullseyeIcon from "/src/assets/icons/bullseye.svg";
+import FetchData from "./services/cv/FetchData";
 
 export default function App() {
   const [sectionId, setSectionId] = useState(1);
@@ -14,6 +15,25 @@ export default function App() {
     work: "add",
   });
   const [showPreview, setShowPreview] = useState(false);
+  const {
+    fetchedPersonalDetails,
+    fetchedLanguagesSkills,
+    fetchedFrameWorksSkills,
+    fetchedToolsSkills,
+    fetchedAllEducationDetails,
+    fetchedAllWorkExpDetails,
+  } = FetchData();
+
+  const resume_data = {
+    personal: fetchedPersonalDetails,
+    technicalSkills: {
+      language: fetchedLanguagesSkills,
+      frameWorks: fetchedFrameWorksSkills,
+      tools: fetchedToolsSkills,
+    },
+    education: fetchedAllEducationDetails,
+    workExperience: fetchedAllWorkExpDetails,
+  };
 
   function getActiveSectionId(sectionId) {
     setSectionId(sectionId);
@@ -66,9 +86,8 @@ export default function App() {
               handleSideBarStatusChange(sectionId, newStatus)
             }
           />
-          {showPreview ? <PreviewPage /> : null}
+          {showPreview ? <PreviewPage resumeData={resume_data} /> : null}
         </main>
-
       </div>
     </div>
   );

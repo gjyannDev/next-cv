@@ -1,7 +1,9 @@
-export default function PreviewPage() {
+import PersonalDetailsSection from "./resumeSections/PersonalDetailsSection"
+
+export default function PreviewPage({resumeData}) {
   return (
     <div className="preview__page--container">
-      <h1>Hello World</h1>
+      <PersonalDetailsSection data={resumeData.personal}/>
     </div>
   )
 }
