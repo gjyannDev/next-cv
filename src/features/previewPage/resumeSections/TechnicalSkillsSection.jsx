@@ -1,6 +1,4 @@
 export default function TechnicalSkillsSection({ data }) {
-  console.log(data.language.join(", "));
-
   return (
     <div className="technical__details--section">
       <h1 className="resume__header--font">Technical Skills</h1>

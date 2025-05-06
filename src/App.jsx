@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import Header from "./components/layout/Header";
 import Sidebar from "./components/layout/Sidebar";
 import FormSection from "./components/common/FormSection";
@@ -6,8 +7,11 @@ import PreviewPage from "./features/previewPage/PreviewPage";
 import visionIcon from "/src/assets/icons/vision.svg";
 import bullseyeIcon from "/src/assets/icons/bullseye.svg";
 import FetchData from "./services/cv/FetchData";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 export default function App() {
+  const print_ref = React.useRef(null);
   const [sectionId, setSectionId] = useState(1);
   const [sideBarStatus, setSideBarStatusMap] = useState({
     personal: "add",
@@ -50,12 +54,51 @@ export default function App() {
     setShowPreview((prev) => !prev);
   }
 
+  async function handleDownloadPdf() {
+    const element = print_ref.current;
+
+    if (!element) return;
+
+    element.classList.add("print-mode");
+
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      scrollX: 0,
+      scrollY: 0,
+      windowWidth: document.documentElement.offsetWidth,
+      windowHeight: document.documentElement.offsetHeight,
+    });
+
+    const data = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "px",
+      format: "a4",
+    });
+
+    const img_properties = pdf.getImageProperties(data);
+    const pdf_width = pdf.internal.pageSize.getWidth();
+    const pdf_height =
+      (img_properties.height * pdf_width) / img_properties.width;
+
+    pdf.addImage(data, "PNG", 0, 0, pdf_width, pdf_height);
+
+    pdf.save(`${fetchedPersonalDetails.full_name} CV.pdf`);
+
+    element.classList.remove("print-mode");
+  }
+
   const currentSideBarStatus = sideBarStatus[sectionId] || "add";
 
   return (
     <div className="app">
       <header className="header__container">
-        <Header showPreview={showPreview}/>
+        <Header
+          showPreview={showPreview}
+          handleDownloadPdf={handleDownloadPdf}
+        />
       </header>
 
       <div className="main__content container">
@@ -86,7 +129,12 @@ export default function App() {
               handleSideBarStatusChange(sectionId, newStatus)
             }
           />
-          {showPreview ? <PreviewPage resumeData={resume_data} /> : null}
+          {showPreview ? (
+            <PreviewPage
+              resumeData={resume_data}
+              printRef={print_ref}
+            />
+          ) : null}
         </main>
       </div>
     </div>

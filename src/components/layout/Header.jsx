@@ -1,6 +1,6 @@
 import downloadIcon from "/src/assets/icons/download_icon.svg";
 
-export default function Header({showPreview}) {
+export default function Header({ showPreview, handleDownloadPdf }) {
   return (
     <div className="header__contents container">
       <h1>
@@ -13,6 +13,7 @@ export default function Header({showPreview}) {
           type="button"
           className="btn--primary download__pdf--btn"
           disabled={!showPreview}
+          onClick={handleDownloadPdf}
         >
           <p>Download</p>
           <img

@@ -53,5 +53,6 @@ export default function FetchData() {
     setFetchedAllEducationDetails,
     fetchedAllWorkExpDetails,
     setFetchedAllWorkExpDetails,
+    setFetchedPersonalDetails,
   };
 }

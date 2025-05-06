@@ -10,7 +10,7 @@ export default function PersonalDetailsForm({
   setStatus,
 }) {
   const [changeFormValue, setChangeFormValue] = useState({});
-  const { fetchedPersonalDetails } = FetchData();
+  const { fetchedPersonalDetails, setFetchedPersonalDetails } = FetchData();
 
   useEffect(() => {
     if (status === "edit") {
