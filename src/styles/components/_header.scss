@@ -6,12 +6,28 @@
   align-items: center;
 
   .header__contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     h1 {
       font-size: $size-28px;
 
       span {
         color: $primary-clr;
+      }
+    }
+
+    .download__pdf--container {
+
+      .download__pdf--btn {
+        display: flex;
+        align-items: center;
+        gap: $size-8px;
+        
+        img {
+          filter: invert(1);
+        }
       }
     }
   }
