@@ -9,6 +9,7 @@ import bullseyeIcon from "/src/assets/icons/bullseye.svg";
 import FetchData from "./services/cv/FetchData";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import ResumePdfDocument from "./features/previewPage/ResumePdfDocument";
 
 export default function App() {
   const print_ref = React.useRef(null);
@@ -137,6 +138,8 @@ export default function App() {
           ) : null}
         </main>
       </div>
+
+      <ResumePdfDocument personalData={resume_data.personal}/>
     </div>
   );
 }
