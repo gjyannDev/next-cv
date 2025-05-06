@@ -55,7 +55,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="header__container">
-        <Header />
+        <Header showPreview={showPreview}/>
       </header>
 
       <div className="main__content container">
