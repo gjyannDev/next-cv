@@ -95,3 +95,13 @@ hr.custom--line {
   height: 0.075rem;
   background-color: $base-black; /* green */
 }
+
+.print-mode {
+  box-shadow: none !important;
+  background: white !important;
+  border: none !important;
+}
+
+.print-mode * {
+  box-shadow: none !important;
+}
