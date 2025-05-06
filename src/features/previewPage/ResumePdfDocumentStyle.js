@@ -70,7 +70,6 @@ export const pageStyles = StyleSheet.create({
   horizontalLine: {
     borderBottomWidth: 1,
     borderBottomColor: "#000",
-    // marginVertical: 8,
     width: "100%",
   },
 
@@ -88,7 +87,22 @@ export const pageStyles = StyleSheet.create({
 
   section: {
     marginTop: "24px"
-  }
+  },
+
+  bullet: {
+    width: 5,
+    height: 5,
+    borderRadius: 2.5,
+    backgroundColor: '#000',
+    marginRight: 10,
+  },
+
+  listItem: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: 5,
+    alignItems: "center",
+  },
 });
 
 export const personalStyle = StyleSheet.create({
@@ -170,3 +184,43 @@ export const educationStyle = StyleSheet.create({
     fontSize: "14px",
   }
 });
+
+export const workStyles = StyleSheet.create({
+  workDetailsSection: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+  },
+
+  workCardContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "24px",
+  },
+
+  cardContent: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: "4px",
+  },
+
+  cardContentBullet: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    marginTop: "8px",
+  },
+
+  jobTitle: {
+    fontSize: "14px",
+    fontFamily: "Merriweather",
+    fontWeight: "normal"
+  },
+
+  bulletListText: {
+    fontSize: "14px",
+    fontFamily: "Open Sans",
+    fontWeight: "normal"
+  }
+})
