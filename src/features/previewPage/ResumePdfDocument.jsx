@@ -7,12 +7,17 @@ import {
   PDFViewer,
   Image,
 } from "@react-pdf/renderer";
-import { personalStyle, pageStyles } from "./ResumePdfDocumentStyle";
+import {
+  personalStyle,
+  pageStyles,
+  educationStyle,
+} from "./ResumePdfDocumentStyle";
 import gmailIcon from "/src/assets/icons/gmail_icon.png";
 import mapIcon from "/src/assets/icons/map_icon.png";
 import phoneIcon from "/src/assets/icons/phone_icon.png";
+import { getYearDate } from "../../services/cv/utils";
 
-export default function ResumePdfDocument({ personalData }) {
+export default function ResumePdfDocument({ personalData, educationData }) {
   const personal_info = [
     { iconImg: gmailIcon, infoText: personalData.email },
     { iconImg: mapIcon, infoText: personalData.address },
@@ -24,6 +29,7 @@ export default function ResumePdfDocument({ personalData }) {
         size="A4"
         style={pageStyles.page}
       >
+        {/*Personal Details*/}
         <View style={personalStyle.personalDetailsSection}>
           <View style={personalStyle.personalInfo}>
             <Text style={personalStyle.nameText}>{personalData.full_name}</Text>
@@ -42,6 +48,31 @@ export default function ResumePdfDocument({ personalData }) {
                   style={{ width: 18, height: 18 }}
                 ></Image>
                 <Text style={personalStyle.infoText}>{info.infoText}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+        {/*Education Details*/}
+        <View
+          style={[educationStyle.educationDetailsSection, pageStyles.section]}
+        >
+          <Text style={pageStyles.subHeaderText}>Education</Text>
+          <View style={pageStyles.horizontalLine} />
+          <View style={educationStyle.educationCardsContainer}>
+            {educationData.map((educ, index) => (
+              <View key={index}>
+                <View style={educationStyle.cardContent}>
+                  <Text style={pageStyles.subHeaderTextTwo}>{educ.school}</Text>
+                  <Text style={pageStyles.subHeaderTextTwo}>
+                    {getYearDate(educ.start_date, educ.end_date)}
+                  </Text>
+                </View>
+                <View style={educationStyle.cardContent}>
+                  <Text style={educationStyle.degreeText}>{educ.degree}</Text>
+                  <Text
+                    style={educationStyle.addressText}
+                  >{`${educ.city}, ${educ.country}`}</Text>
+                </View>
               </View>
             ))}
           </View>

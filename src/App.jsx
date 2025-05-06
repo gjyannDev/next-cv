@@ -139,7 +139,10 @@ export default function App() {
         </main>
       </div>
 
-      <ResumePdfDocument personalData={resume_data.personal}/>
+      <ResumePdfDocument
+        personalData={resume_data.personal}
+        educationData={resume_data.education}
+      />
     </div>
   );
 }
