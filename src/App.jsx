@@ -142,6 +142,7 @@ export default function App() {
       <ResumePdfDocument
         personalData={resume_data.personal}
         educationData={resume_data.education}
+        workData={resume_data.workExperience}
       />
     </div>
   );

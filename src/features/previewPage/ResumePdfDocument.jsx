@@ -11,13 +11,20 @@ import {
   personalStyle,
   pageStyles,
   educationStyle,
+  workStyles,
 } from "./ResumePdfDocumentStyle";
 import gmailIcon from "/src/assets/icons/gmail_icon.png";
 import mapIcon from "/src/assets/icons/map_icon.png";
 import phoneIcon from "/src/assets/icons/phone_icon.png";
 import { getYearDate } from "../../services/cv/utils";
 
-export default function ResumePdfDocument({ personalData, educationData }) {
+export default function ResumePdfDocument({
+  personalData,
+  educationData,
+  workData,
+}) {
+  console.log(workData);
+
   const personal_info = [
     { iconImg: gmailIcon, infoText: personalData.email },
     { iconImg: mapIcon, infoText: personalData.address },
@@ -72,6 +79,39 @@ export default function ResumePdfDocument({ personalData, educationData }) {
                   <Text
                     style={educationStyle.addressText}
                   >{`${educ.city}, ${educ.country}`}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+        {/*Work Experience Details*/}
+        <View style={[workStyles.workDetailsSection, pageStyles.section]}>
+          <Text style={pageStyles.subHeaderText}>Work Experience</Text>
+          <View style={pageStyles.horizontalLine} />
+          <View style={workStyles.workCardContainer}>
+            {workData.map((work, index) => (
+              <View key={index}>
+                <View style={workStyles.cardContent}>
+                  <Text style={pageStyles.subHeaderTextTwo}>
+                    {work.company_name}
+                  </Text>
+                  <Text style={pageStyles.subHeaderTextTwo}>
+                    {getYearDate(work.start_date, work.end_date)}
+                  </Text>
+                </View>
+                <View style={workStyles.cardContent}>
+                  <Text style={workStyles.jobTitle}>{work.job_title}</Text>
+                </View>
+                <View style={workStyles.cardContentBullet}>
+                  {work.description.map((des, index) => (
+                    <View
+                      key={index}
+                      style={pageStyles.listItem}
+                    >
+                      <View style={pageStyles.bullet} />
+                      <Text style={workStyles.bulletListText}>{des}</Text>
+                    </View>
+                  ))}
                 </View>
               </View>
             ))}
