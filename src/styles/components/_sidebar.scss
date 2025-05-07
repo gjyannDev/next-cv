@@ -23,7 +23,13 @@
     }
   }
 
-  .preview__nav--container {
+  .lower__sidebar--contents {
+    display: flex;
+    flex-direction: column;
+    gap: $size-12px;
+  }
+
+  .preview__nav--container, .download__nav--container{
     @include side-bar($size-72px, $size-72px);
 
     img {
