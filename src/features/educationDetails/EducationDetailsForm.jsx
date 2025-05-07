@@ -98,22 +98,15 @@ export default function EducationDetailsForm({
             />
           }
           <div className="grouped__btn--container">
-            {status === "edit" && (
+            {(status === "edit" || status === "add") && (
               <button
                 type="submit"
                 className="btn--primary-2"
                 onClick={() => setStatus("card")}
               >
-                Cancel
+                {status === "edit" ? "Cancel" : "Preview"}
               </button>
             )}
-            <button
-              type="submit"
-              className="btn--primary-2"
-              onClick={() => setStatus("card")}
-            >
-              Preview
-            </button>
             <button
               type="submit"
               className="btn--primary"
