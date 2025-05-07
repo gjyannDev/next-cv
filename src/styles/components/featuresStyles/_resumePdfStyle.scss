@@ -1,4 +1,46 @@
 .pdf__viewer--container {
   width: 100%;
   height: 756px;
+  background-color: rgba(0, 0, 0, 0.8); 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  position: relative; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+  
+}
+
+.pdf__viewer--mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  z-index: 1000; 
+  background-color: rgba(0, 0, 0, 0.9); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewer__main--container {
+  position: relative;
+  width: 90%; 
+  height: 90%;
+  background-color: #ffffff; 
+  border-radius: 8px;
+  overflow: hidden; 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.close__button {
+  position: absolute;
+  top: 556px;
+  right: 56px;
+  z-index: 1100;
 }
