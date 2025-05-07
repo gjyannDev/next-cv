@@ -143,6 +143,7 @@ export default function App() {
         personalData={resume_data.personal}
         educationData={resume_data.education}
         workData={resume_data.workExperience}
+        technicalSkillsData={resume_data.technicalSkills}
       />
     </div>
   );

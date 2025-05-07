@@ -12,6 +12,7 @@ import {
   pageStyles,
   educationStyle,
   workStyles,
+  technicalStyles,
 } from "./ResumePdfDocumentStyle";
 import gmailIcon from "/src/assets/icons/gmail_icon.png";
 import mapIcon from "/src/assets/icons/map_icon.png";
@@ -22,9 +23,8 @@ export default function ResumePdfDocument({
   personalData,
   educationData,
   workData,
+  technicalSkillsData,
 }) {
-  console.log(workData);
-
   const personal_info = [
     { iconImg: gmailIcon, infoText: personalData.email },
     { iconImg: mapIcon, infoText: personalData.address },
@@ -115,6 +115,37 @@ export default function ResumePdfDocument({
                 </View>
               </View>
             ))}
+          </View>
+        </View>
+        {/*Technical Skills Details*/}
+        <View style={[workStyles.workDetailsSection, pageStyles.section]}>
+          <Text style={pageStyles.subHeaderText}>Technical Skills</Text>
+          <View style={pageStyles.horizontalLine} />
+          <View style={technicalStyles.technicalContentContainer}>
+            <View style={technicalStyles.skillsContainer}>
+              <Text style={technicalStyles.skillsHeaderText}>
+                Programming Language:
+              </Text>
+              <Text style={technicalStyles.skillsParagraphText}>
+                {technicalSkillsData.language.join(", ")}
+              </Text>
+            </View>
+            <View style={technicalStyles.skillsContainer}>
+              <Text style={technicalStyles.skillsHeaderText}>
+                Frameworks and Databases: 
+              </Text>
+              <Text style={technicalStyles.skillsParagraphText}>
+                {technicalSkillsData.frameWorks.join(", ")}
+              </Text>
+            </View>
+            <View style={technicalStyles.skillsContainer}>
+              <Text style={technicalStyles.skillsHeaderText}>
+                Other Tools and Technologies: 
+              </Text>
+              <Text style={technicalStyles.skillsParagraphText}>
+                {technicalSkillsData.tools.join(", ")}
+              </Text>
+            </View>
           </View>
         </View>
       </Page>
