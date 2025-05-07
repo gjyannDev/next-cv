@@ -58,7 +58,7 @@ Font.register({
   family: "Merriweather",
   src: "/src/assets/fonts/Merriweather_24pt-Italic.ttf",
   fontWeight: "normal",
-  fontStyle: "italic"
+  fontStyle: "italic",
 });
 
 export const pageStyles = StyleSheet.create({
@@ -86,20 +86,20 @@ export const pageStyles = StyleSheet.create({
   },
 
   section: {
-    marginTop: "24px"
+    marginTop: "24px",
   },
 
   bullet: {
     width: 5,
     height: 5,
     borderRadius: 2.5,
-    backgroundColor: '#000',
+    backgroundColor: "#000",
     marginRight: 10,
   },
 
   listItem: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     marginBottom: 5,
     alignItems: "center",
   },
@@ -182,7 +182,7 @@ export const educationStyle = StyleSheet.create({
     fontFamily: "Open Sans",
     fontWeight: "medium",
     fontSize: "14px",
-  }
+  },
 });
 
 export const workStyles = StyleSheet.create({
@@ -215,12 +215,47 @@ export const workStyles = StyleSheet.create({
   jobTitle: {
     fontSize: "14px",
     fontFamily: "Merriweather",
-    fontWeight: "normal"
+    fontWeight: "normal",
   },
 
   bulletListText: {
     fontSize: "14px",
     fontFamily: "Open Sans",
-    fontWeight: "normal"
-  }
-})
+    fontWeight: "normal",
+  },
+});
+
+export const technicalStyles = StyleSheet.create({
+  technicalDetailsSection: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+  },
+
+  technicalContentContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+  },
+
+  skillsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    gap: "8px",
+  },
+  
+  skillsHeaderText: {
+    fontSize: "14px",
+    flexShrink: 0,
+    width: 178.6,
+  },
+
+  skillsParagraphText: {
+    fontSize: 12.6,
+    flexGrow: 1,
+    wordBreak: "break-word",
+    margin: 0,
+  },
+});
