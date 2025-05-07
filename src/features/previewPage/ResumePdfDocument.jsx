@@ -24,6 +24,8 @@ export default function ResumePdfDocument({
   educationData,
   workData,
   technicalSkillsData,
+  showPDFView,
+  setShowPDFView,
 }) {
   const personal_info = [
     { iconImg: gmailIcon, infoText: personalData.email },
@@ -132,7 +134,7 @@ export default function ResumePdfDocument({
             </View>
             <View style={technicalStyles.skillsContainer}>
               <Text style={technicalStyles.skillsHeaderText}>
-                Frameworks and Databases: 
+                Frameworks and Databases:
               </Text>
               <Text style={technicalStyles.skillsParagraphText}>
                 {technicalSkillsData.frameWorks.join(", ")}
@@ -140,7 +142,7 @@ export default function ResumePdfDocument({
             </View>
             <View style={technicalStyles.skillsContainer}>
               <Text style={technicalStyles.skillsHeaderText}>
-                Other Tools and Technologies: 
+                Other Tools and Technologies:
               </Text>
               <Text style={technicalStyles.skillsParagraphText}>
                 {technicalSkillsData.tools.join(", ")}
@@ -152,8 +154,18 @@ export default function ResumePdfDocument({
     </Document>
   );
   return (
-    <div>
-      <div className="pdf__viewer--container">
+    <div className="viewer__main--container">
+      <div
+        className={`pdf__viewer--container ${
+          showPDFView ? "pdf__viewer--mode " : ""
+        }`}
+      >
+        <button
+          className="close__button btn--primary"
+          onClick={() => setShowPDFView(false)}
+        >
+          Close
+        </button>
         <PDFViewer
           width="100%"
           height="100%"

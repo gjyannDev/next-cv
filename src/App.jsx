@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Header from "./components/layout/Header";
 import Sidebar from "./components/layout/Sidebar";
@@ -8,6 +8,7 @@ import visionIcon from "/src/assets/icons/vision.svg";
 import bullseyeIcon from "/src/assets/icons/bullseye.svg";
 import FetchData from "./services/cv/FetchData";
 import ResumePdfDocument from "./features/previewPage/ResumePdfDocument";
+import downloadIcon from "/src/assets/icons/download_icon2.svg";
 
 export default function App() {
   const print_ref = React.useRef(null);
@@ -39,6 +40,14 @@ export default function App() {
     workExperience: fetchedAllWorkExpDetails,
   };
 
+  useEffect(() => {
+    if (showPDFView) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [showPDFView])
+
   function getActiveSectionId(sectionId) {
     setSectionId(sectionId);
   }
@@ -54,6 +63,11 @@ export default function App() {
     setShowPreview((prev) => !prev);
   }
 
+  function handleDownloadView() {
+    setShowPDFView((prev) => !prev);
+  }
+
+  //*Might use again don't remove
   // async function handleDownloadPdf() {
   //   const element = print_ref.current;
 
@@ -104,16 +118,29 @@ export default function App() {
             getActiveSectionId={getActiveSectionId}
             sectionId={sectionId}
           />
-          <div className="preview__nav--container">
-            <button
-              type="button"
-              onClick={handlePreview}
-            >
-              <img
-                src={showPreview ? bullseyeIcon : visionIcon}
-                alt={showPreview ? "bullseye icon" : "vision icon"}
-              />
-            </button>
+          <div className="lower__sidebar--contents">
+            <div className="preview__nav--container">
+              <button
+                type="button"
+                onClick={handlePreview}
+              >
+                <img
+                  src={showPreview ? bullseyeIcon : visionIcon}
+                  alt={showPreview ? "bullseye icon" : "vision icon"}
+                />
+              </button>
+            </div>
+            <div className="download__nav--container">
+              <button
+                type="button"
+                onClick={handleDownloadView}
+              >
+                <img
+                  src={downloadIcon}
+                  alt="download svg icon"
+                />
+              </button>
+            </div>
           </div>
         </nav>
 
@@ -135,12 +162,16 @@ export default function App() {
         </main>
       </div>
 
-      <ResumePdfDocument
-        personalData={resume_data.personal}
-        educationData={resume_data.education}
-        workData={resume_data.workExperience}
-        technicalSkillsData={resume_data.technicalSkills}
-      />
+      {showPDFView && (
+        <ResumePdfDocument
+          personalData={resume_data.personal}
+          educationData={resume_data.education}
+          workData={resume_data.workExperience}
+          technicalSkillsData={resume_data.technicalSkills}
+          showPDFView={showPDFView}
+          setShowPDFView={setShowPDFView}
+        />
+      )}
     </div>
   );
 }
