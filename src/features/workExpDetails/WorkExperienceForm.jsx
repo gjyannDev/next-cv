@@ -18,7 +18,10 @@ export default function WorkExperienceForm({
   const { fetchedAllWorkExpDetails } = FetchData();
   const id = crypto.randomUUID();
   const [workDescriptions, setWorkDescriptions] = useState([]);
-  const [initialDescriptionValues, setInitialDescriptionValues] = useState(["", ""]);
+  const [initialDescriptionValues, setInitialDescriptionValues] = useState([
+    "",
+    "",
+  ]);
 
   useEffect(() => {
     if (status === "edit") {
@@ -102,8 +105,18 @@ export default function WorkExperienceForm({
             >
               Cancel
             </button>
-          )}
-          <button type="submit" className="btn--primary">
+          )}{" "}
+          <button
+            type="submit"
+            className="btn--primary-2"
+            onClick={() => setStatus("card")}
+          >
+            Preview
+          </button>
+          <button
+            type="submit"
+            className="btn--primary"
+          >
             Save
           </button>
         </div>
