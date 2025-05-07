@@ -32,7 +32,13 @@ export default function FeaturePagesForm({
                 Cancel
               </button>
             )}
-
+            <button
+              type="submit"
+              className="btn--primary-2"
+              onClick={() => setStatus("card")}
+            >
+              Preview
+            </button>
             <button
               type="submit"
               className="btn--primary"
