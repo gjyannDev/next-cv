@@ -6,7 +6,7 @@ import {
 } from "../../services/api/cvService";
 import FetchData from "../../services/cv/FetchData";
 import DescriptionDynamicForm from "../../components/common/DescriptionDynamicForm";
-  
+
 export default function EducationDetailsForm({
   inputDetails = [],
   status,
@@ -107,7 +107,13 @@ export default function EducationDetailsForm({
                 Cancel
               </button>
             )}
-
+            <button
+              type="submit"
+              className="btn--primary-2"
+              onClick={() => setStatus("card")}
+            >
+              Preview
+            </button>
             <button
               type="submit"
               className="btn--primary"
