@@ -2,61 +2,61 @@ import { StyleSheet, Font } from "@react-pdf/renderer";
 
 Font.register({
   family: "Open Sans",
-  src: "/src/assets/fonts/OpenSans_Condensed-Regular.ttf",
+  src: "/fonts/OpenSans_Condensed-Regular.ttf",
   fontWeight: "normal",
 });
 
 Font.register({
   family: "Open Sans",
-  src: "/src/assets/fonts/OpenSans_Condensed-Medium.ttf",
+  src: "/fonts/OpenSans_Condensed-Medium.ttf",
   fontWeight: "medium",
 });
 
 Font.register({
   family: "Open Sans",
-  src: "/src/assets/fonts/OpenSans_Condensed-SemiBold.ttf",
+  src: "/fonts/OpenSans_Condensed-SemiBold.ttf",
   fontWeight: "600",
 });
 
 Font.register({
   family: "Open Sans",
-  src: "/src/assets/fonts/OpenSans_SemiCondensed-Bold.ttf",
+  src: "/fonts/OpenSans_SemiCondensed-Bold.ttf",
   fontWeight: "bold",
 });
 
 Font.register({
   family: "Merriweather",
-  src: "/src/assets/fonts/Merriweather_24pt-Regular.ttf",
+  src: "/fonts/Merriweather_24pt-Regular.ttf",
   fontWeight: "normal",
 });
 
 Font.register({
   family: "Merriweather",
-  src: "/src/assets/fonts/Merriweather_24pt-Medium.ttf",
+  src: "/fonts/Merriweather_24pt-Medium.ttf",
   fontWeight: "medium",
 });
 
 Font.register({
   family: "Merriweather",
-  src: "/src/assets/fonts/Merriweather_24pt-SemiBold.ttf",
+  src: "/fonts/Merriweather_24pt-SemiBold.ttf",
   fontWeight: "600",
 });
 
 Font.register({
   family: "Merriweather",
-  src: "/src/assets/fonts/Merriweather_24pt-Bold.ttf",
+  src: "/fonts/Merriweather_24pt-Bold.ttf",
   fontWeight: "bold",
 });
 
 Font.register({
   family: "Merriweather",
-  src: "/src/assets/fonts/Merriweather_24pt-ExtraBold.ttf",
+  src: "/fonts/Merriweather_24pt-ExtraBold.ttf",
   fontWeight: "800",
 });
 
 Font.register({
   family: "Merriweather",
-  src: "/src/assets/fonts/Merriweather_24pt-Italic.ttf",
+  src: "/fonts/Merriweather_24pt-Italic.ttf",
   fontWeight: "normal",
   fontStyle: "italic",
 });
